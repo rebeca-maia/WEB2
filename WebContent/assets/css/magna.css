@@ -1,0 +1,632 @@
+/*
+| PATTERNS
+|   > RSCSS
+|   > ITCSS
+/*
+
+/*
+|----------------------------------------------------------------------------------------------
+| SETTINGS
+|----------------------------------------------------------------------------------------------
+|
+*/
+
+/*
+|----------------------------------------------------------------------------------------------
+| TOOLS
+|----------------------------------------------------------------------------------------------
+|
+*/
+
+/*
+| GRID
+*/
+.container {
+    max-width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.container:after,
+.row:after{
+    clear: both;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-12 {
+    width: 100%;
+}
+.col-11 {
+    width: 91.66666667%;
+}
+.col-10 {
+    width: 83.33333333%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-8 {
+    width: 66.66666667%;
+}
+.col-7 {
+    width: 58.33333333%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-5 {
+    width: 41.66666667%;
+}
+.col-4 {
+    width: 33.33333333%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-2 {
+    width: 16.66666667%;
+}
+.col-1 {
+    width: 8.33333333%;
+}
+
+.show{
+    display: block !important;
+}
+
+.hide{
+    display: none !important;
+}
+
+/*
+|----------------------------------------------------------------------------------------------
+| GENERIC
+|----------------------------------------------------------------------------------------------
+|
+*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+|----------------------------------------------------------------------------------------------
+| BASE
+|----------------------------------------------------------------------------------------------
+|
+*/
+html, body, .wrapper-main{
+    height: 100%;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    color: #333;
+    background: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3{
+    margin-bottom: 20px;
+}
+
+h4,
+h5,
+h6{
+    margin-bottom: 10px;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1.75rem;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+h5{
+    font-size: 1.25rem;
+}
+
+h6{
+    font-size: 1rem;
+}
+
+p{
+    margin-bottom: 15px;
+}
+
+ul, ol{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+textarea { resize: vertical; min-height: 150px; }
+textarea, input, button { outline: none; }
+
+a, button{
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    color: #2494F2;
+}
+
+a:hover{
+    color: #36A3FF;
+}
+
+a .fa{
+    margin: 0 5px; 
+}
+
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/*
+|----------------------------------------------------------------------------------------------
+| OBJECTS
+|----------------------------------------------------------------------------------------------
+|
+*/
+.panel-main{
+    display: block;
+    background: #fff;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3)
+}
+
+/*
+| TABLE
+*/
+.table{
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.table > thead > tr > th{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    background: #eee;
+}
+
+.table > tbody > tr > td{
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/*
+| FORMS
+*/
+.form-data.-block > .group{
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-data.-block > .group:last-child{
+    margin-bottom: 0;
+}
+
+.form-data > .group > .label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-data > .group > .label > .required{
+    color: #d43f3a;
+}
+
+.form-data > .group > .field{
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    color: #333;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.form-data > .group > .field:hover{
+    box-shadow: 0 0px 0px 3px rgba(204,204,204,.8);
+}
+
+.form-data > .group > .field:focus{
+    box-shadow: 0 0px 0px 3px rgba(204,204,204,.8);
+}
+
+/*
+| BTN's
+*/
+.btn{
+    display: inline-block;
+    font-size: .9rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 25px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,.1);
+    cursor: pointer;
+    line-height: 1.7;
+    background: none;
+    color: #fff;
+}
+
+.btn.-success{
+    background: #3adb76;
+}
+
+.btn.-success:hover{
+    background: #22bb5b;}
+
+.btn.-primary{
+    background: #1779ba;
+}
+
+.btn.-primary:hover{
+    background: #126195;
+}
+
+.btn.-warning{
+    background: #ffae00;
+}
+
+.btn.-warning:hover{
+    background: #cc8b00;
+}
+
+.btn.-danger{
+    background: #cc4b37;
+}
+
+.btn.-danger:hover{
+    background: #a53b2a;
+}
+
+.btn.-lg{
+    font-size: 1rem;
+    padding: 10px 35px;
+}
+
+.btn.-block{
+    display: block;
+    text-align: center;
+}
+
+/*
+| IMG's
+*/
+.img-rounded{
+    border-radius: 10px;
+}
+
+.img-circle{
+    border-radius: 50%;
+}
+
+.img-thumbnail{
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+/*
+| ALERTS
+*/
+.alert{
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.alert.-success{
+    background: #3adb76;
+}
+
+.alert.-primary{
+    background: #1779ba;
+}
+
+.alert.-warning{
+    background: #ffae00;
+}
+
+.alert.-danger{
+    background: #cc4b37;
+}
+
+/*
+| NAVBAR
+*/
+.nav-bar.-default {
+    background-color: #2494F2;
+    color: #fff;
+}
+
+.nav-bar.-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+}
+
+.nav-bar .brand{
+    display: inline-block;
+    line-height: 55px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.nav-bar .list-items{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-bar.-default .list-items{
+    float: right;
+}
+
+.nav-bar .list-items{
+    font-size: .9rem;
+}
+
+.nav-bar .list-items > .item{
+    position: relative;
+    display: inline-block;
+}
+
+.nav-bar.-sidebar .list-items > .item:first-child{
+    border-top: 0;
+}
+
+.nav-bar.-sidebar .list-items > .item{
+    display: block;
+    border-top: solid 1px rgba(0, 0, 0, .1);
+    border-bottom: solid 1px rgba(255, 255, 255, .1);
+}
+
+.nav-bar .list-items > .item > a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 10px;
+}
+
+.nav-bar.-sidebar .list-items > .item > a{
+    padding: 10px 10px;
+}
+
+.nav-bar .list-items > .item > a:hover{
+    background: #36A3FF;
+}
+
+.nav-bar .list-items > .item.-active > .btn-drop{
+    background: #36A3FF;
+}
+
+.nav-bar .list-items > .item > .dropdown{
+    display: none;
+    position: absolute;
+    width: auto;
+    min-width: 100%;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .175);
+    z-index: 999;
+}
+
+.nav-bar.-sidebar .list-items > .item > .dropdown{
+    position: relative;
+    background-color: #eee;
+}
+
+.nav-bar .list-items > .item.-active > .dropdown{
+    display: block;
+}
+
+.nav-bar .list-items > .item > .dropdown > .item > a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-bottom: solid 1px #ccc;
+}
+
+.nav-bar .list-items > .item > .dropdown > .item:last-child > a{
+    border-bottom: 0;
+}
+
+.nav-bar .list-items > .item > .dropdown > .item > a:hover{
+    background: #2494F2;
+    color: #fff;
+}
+
+.nav-bar.-sidebar .fa-caret-down{
+    float: right;
+    margin-top: 5px;
+}
+
+/*
+|BREADCRUMBS
+*/
+.breadcrumbs{
+    padding: 0;
+    font-size: .9rem;
+}
+
+.content-main .breadcrumbs{
+    margin: 10px 0 0 0; 
+}
+
+.breadcrumbs .item{
+    display: inline-block;
+}
+
+.breadcrumbs .item a{
+    text-decoration: none;
+}
+
+/*
+| PAGINATION
+*/
+.pagination{
+    display: block;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination > .item{
+    display: inline-block;
+    font-weight: 500;
+}
+
+.pagination > .item > a, .pagination > .item.-active{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: solid 1px #ccc;
+    text-align: center;
+    text-decoration: none;
+}
+
+.pagination > .item.-active{
+    display: inline-block;
+}
+
+.pagination > .item > a:hover{
+    background-color: #2494F2;
+    color: #fff;
+}
+
+/*
+| PANEL
+*/
+.panel{
+    display: block;
+    margin: 20px 0;
+    border: solid 1px #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.panel > .head{
+    padding: 5px 10px;
+    background-color: #eee;
+    border-bottom: solid 1px #ccc;
+}
+
+.panel > .content {
+    padding: 5px 10px;
+}
+
+/*
+| SIDEBAR MAIN
+*/
+.wrapper-main{
+    display: table;
+}
+
+.sidebar-main{
+    display: table-cell;
+    width: 20%;
+    background-color: #272930;
+    z-index: 2;
+}
+
+/*
+|CONTENT MAIN
+*/
+.content-main{
+    display: table-cell;
+    width: 80%;
+}
+
+/*
+|----------------------------------------------------------------------------------------------
+| COMPONENTS
+|----------------------------------------------------------------------------------------------
+|
+*/
+
+/*
+|----------------------------------------------------------------------------------------------
+| TRUMPS
+|----------------------------------------------------------------------------------------------
+|
+*/
