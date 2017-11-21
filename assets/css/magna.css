@@ -600,6 +600,7 @@ img{
 */
 .wrapper-main{
     display: table;
+    width: 100%;
 }
 
 .sidebar-main{
