@@ -319,6 +319,10 @@ img{
     color: #fff;
 }
 
+.btn:hover{
+    color: #fff;
+}
+
 .btn.-success{
     background: #3adb76;
 }
