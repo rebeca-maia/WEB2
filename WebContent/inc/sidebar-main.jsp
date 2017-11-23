@@ -4,7 +4,7 @@
             
             <ul class="list-items">
 
-                <li class="item"><a href="<%= Configs.getMainUrl() %>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                <li class="item"><a href="<%= Configs.getMainUrlHome() %>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 
                 <li class="item">
                     <a class="btn-drop" href="#"><i class="fa fa-user" aria-hidden="true"></i>Usuário <i class="fa fa-caret-down" aria-hidden="true"></i></a>

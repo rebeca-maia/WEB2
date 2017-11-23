@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("nome", "Albert Einstein");
 				session.setAttribute("email", email);
 				
-				response.sendRedirect( Configs.getMainUrl() );
+				response.sendRedirect( Configs.getMainUrlHome() );
 			}
 			
 			else {
