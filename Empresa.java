@@ -1,17 +1,52 @@
 package model;
+
 /**
  *
  * @author Rebeca
  */
-import java.util.ArrayList;
-
 public class Empresa {
+
+    private int id;
     private String tipo;
     private String cnpj;
     private String razaoSocial;
     private String nomeFantasia;
-    private ArrayList<Usuario> funcionarios = new ArrayList<> ();
     private Endereco end;
+    private String login;
+    private String email;
+    private String senha;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Endereco getEnd() {
         return end;
@@ -24,7 +59,6 @@ public class Empresa {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
 
     public void setEnd(Endereco end) {
         this.end = end;
@@ -54,12 +88,4 @@ public class Empresa {
         this.nomeFantasia = nomeFantasia;
     }
 
-    public ArrayList<Usuario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(ArrayList<Usuario> funcionarios) {
-        this.funcionarios = funcionarios;
-    }
-    
 }

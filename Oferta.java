@@ -9,6 +9,26 @@ public class Oferta {
     private Produto p;
     private float precoTotal;
     private int qtd;
+    private int id;
+    private Pedido or;
+
+    public Pedido getOr() {
+        return or;
+    }
+
+    public void setOr(Pedido or) {
+        this.or = or;
+    }
+    
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public String getCategoria() {
         return categoria;

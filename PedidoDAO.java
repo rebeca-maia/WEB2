@@ -4,22 +4,21 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.Endereco;
+import model.Pedido;
 
 /**
  *
  * @author Rebeca
  */
-public class EnderecoDAO {
+public class PedidoDAO {
+     private Statement comando;
 
-    private Statement comando;
-
-    public void adicionarEndereco(Endereco entity) throws SQLException {
-        //rua,numero,bairro,complemento,cep,cidade,estado,pais
+    public void adicionarPedido(Pedido entity) throws SQLException {
+        //idpedido, precoTotal, data, qtdTotal
         Connection con = null;
         try {
             con = ConexaoDAO.getConexaoMySQL();
-            String s = "INSERT INTO (rua,numero,bairro,complemento,cep,cidade,estado,pais) VALUES( '" + entity.getRua() + "','" + entity.getNum() + "','" + entity.getBairro() + "','" + entity.getComplemento() + "','" + entity.getCep() + "','" + entity.getCidade() + "','" + entity.getEstado() + "','" + entity.getPais() + "';";
+            String s = "INSERT INTO (precoTotal, data, qtdTotal) VALUES( '" + entity.getPrecoTotal()+ "','" + entity.getD() + "','" + entity.getQtdTotal()+ "';";
             getComando().executeQuery(s);
         } catch (SQLException e) {
             throw new SQLException("Operação não realizada com sucesso.", e);
@@ -33,14 +32,13 @@ public class EnderecoDAO {
             }
         }
     }
-    
-    public void atualizarEndereco(Endereco entity) throws SQLException {
-        //rua,numero,bairro,complemento,cep,cidade,estado,pais
+
+    public void deletarPedido(Pedido p) throws SQLException {
         Connection con = null;
         try {
             con = ConexaoDAO.getConexaoMySQL();
-            String update_sql = "UPDATE empresa SET rua = '" + entity.getRua() + "',numero='" + entity.getNum() + "',bairro='" + entity.getBairro() + "',complemento='" + entity.getComplemento() + "',cep='" + entity.getCep() + "',cidade='" + entity.getCidade() + "',estado='" + entity.getEstado() + "',pais='" + entity.getPais() + "';";
-            getComando().executeQuery(update_sql);
+            String sql = "DELETE * FROM empresa WHERE id = " + p.getId();
+            comando.executeQuery(sql);
         } catch (SQLException e) {
             throw new SQLException("Operação não realizada com sucesso.", e);
         } finally {
@@ -53,14 +51,17 @@ public class EnderecoDAO {
             }
         }
     }
-    public Endereco buscarEnderecoPorID(int id) throws SQLException {
-        //idEndereco, rua, numero, bairro, complemento, cep, cidade, estado, pais
+
+    
+
+    public Pedido buscarPedidoPorID(int id) throws SQLException {
+        //idpedido, precoTotal, data, qtdTotal
 
         Connection con = null;
-        Endereco cl = null;
+        Pedido cl = null;
         try {
             con = ConexaoDAO.getConexaoMySQL();
-            ResultSet rs = comando.executeQuery("SELECT idEndereco,rua,numero,bairro,complemento,cep,cidade,estado,pais FROM endereco WHERE idEndereco=" + id + " ;");
+            ResultSet rs = comando.executeQuery("SELECT idpedido, precoTotal, data, qtdTotal FROM pedido WHERE idpedido=" + id + " ;");
             if (rs.next()) {
                 cl = gerarObjeto(rs);
             }
@@ -77,26 +78,26 @@ public class EnderecoDAO {
         }
         return cl;
     }
-    
-     private Endereco gerarObjeto(ResultSet rs) throws SQLException {
-        Endereco cl = new Endereco();
-        cl.setRua(rs.getString("rua"));
-        cl.setNum(rs.getString("num"));
-        cl.setBairro(rs.getString("bairro"));
-        cl.setComplemento(rs.getString("complemento"));
-        cl.setCep(rs.getString("cep"));        
-        cl.setCidade(rs.getString("cidade"));
-        cl.setEstado(rs.getString("estado"));
-        cl.setPais(rs.getString("pais"));
+
+    private Pedido gerarObjeto(ResultSet rs) throws SQLException {
+        //precoTotal,qtdTotal,itens,id, d
+        Pedido cl = new Pedido();
+        cl.setPrecoTotal(rs.getInt("precoTotal"));
+        cl.setQtdTotal(rs.getInt("qtdTotal"));
+        //como setar os itens do pedido?
+        cl.setD(rs.getDate("d"));
+        
+
         return cl;
     }
 
-    public void deleteEndereco(int id) throws SQLException {
+    public void atualizarPedido(Pedido entity) throws SQLException {
+        //idpedido, precoTotal, data, qtdTotal
         Connection con = null;
         try {
             con = ConexaoDAO.getConexaoMySQL();
-            String sql = "DELETE * FROM endereco where id = " + id;
-            comando.executeQuery(sql);
+            String update_sql = "UPDATE empresa SET precoTotal = " + entity.getPrecoTotal() + ",data='" + entity.getD() + "',qtdTotal=" + entity.getQtdTotal() + ";";
+            getComando().executeQuery(update_sql);
         } catch (SQLException e) {
             throw new SQLException("Operação não realizada com sucesso.", e);
         } finally {

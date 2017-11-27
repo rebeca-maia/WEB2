@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -10,7 +11,25 @@ public class Pedido {
     private float precoTotal;
     private int qtdTotal;
     private ArrayList<ItemPedido> itens = new ArrayList<> ();
+    private int id;
+    private Date d;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public Date getD() {
+        return d;
+    }
+
+    public void setD(Date d) {
+        this.d = d;
+    }
+  
     public float getPrecoTotal() {
         return precoTotal;
     }
