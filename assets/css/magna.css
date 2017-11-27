@@ -194,6 +194,10 @@ ul, ol{
 textarea { resize: vertical; min-height: 150px; }
 textarea, input, button { outline: none; }
 
+textarea:disabled, input:disabled, button:disabled{
+    cursor: not-allowed;
+}
+
 a, button{
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -255,9 +259,21 @@ img{
     border: 1px solid #ddd;
 }
 
+.table th.actions{
+    min-width: 135px;
+}
+
+.table td.actions{
+    text-align: center;
+}
+
 /*
 | FORMS
 */
+.form-data{
+    margin-bottom: 1rem;
+}
+
 .form-data.-block > .group{
     display: block;
     margin-bottom: 1rem;
@@ -389,6 +405,10 @@ img{
     border-radius: 5px;
     margin-bottom: 10px;
     color: #fff;
+}
+
+.alert ul{
+    margin: 0 0 0 15px;
 }
 
 .alert.-success{
