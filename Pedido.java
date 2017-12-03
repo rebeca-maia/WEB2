@@ -11,6 +11,7 @@ public class Pedido {
     private float precoTotal;
     private int qtdTotal;
     private ArrayList<ItemPedido> itens = new ArrayList<> ();
+    private ArrayList<Oferta> of = new ArrayList<>();
     private int id;
     private Date d;
 
@@ -52,6 +53,11 @@ public class Pedido {
 
     public void setItens(ArrayList<ItemPedido> itens) {
         this.itens = itens;
+    }
+    
+    public void adicionarItemPedido(ItemPedido p){
+        p.setIdPedido(this.id);
+        this.itens.add(p);
     }
     
     

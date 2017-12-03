@@ -16,7 +16,7 @@ public class OfertaDAO {
     
      private Statement comando;
 
-    public void lancarOferta(Oferta entity) throws SQLException {
+    public void cadastrar(Oferta entity) throws SQLException {
         //idoferta,fk_pedido,categoria,qtd,precoTotal
         Connection con = null;
         try {

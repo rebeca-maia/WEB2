@@ -5,6 +5,7 @@ package model;
  */
 
 public class Cliente extends Empresa{
+    
     private int id;
 
     public int getId() {

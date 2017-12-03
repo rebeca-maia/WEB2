@@ -143,5 +143,4 @@ public class ClienteDAO {
     public Statement getComando() {
         return comando;
     }
-
 }
