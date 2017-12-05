@@ -1,12 +1,16 @@
 ﻿jQuery(document).ready(function($) {
 
     /*
-    | NAVBAR
-    */
+     | NAVBAR
+     */
     $('.nav-bar .item > .btn-drop, .sidebar-main .item > .btn-drop').click(function() {
         $(this).parent().toggleClass("-active");
 
         return false;
     });
 
+    /*
+     | MASK
+     */
+    $('.cep').mask('00000-000');
 });

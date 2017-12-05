@@ -1,4 +1,5 @@
 <%@page import="general.Configs"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -46,7 +47,7 @@
                         <div class="row">
                             <div class="col-12">
 
-                                <p>Seja bem vindo a p·gina Inicial.</p>
+                                <p>Seja bem vindo a p√°gina Inicial.</p>
 
                             </div>
                         </div>

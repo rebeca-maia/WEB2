@@ -6,21 +6,29 @@
 
         <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 
+        <!--        <li class="item">
+                    <a class="btn-drop" href="#"><i class="fa fa-user" aria-hidden="true"></i>Empresa <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                    <ul class="dropdown">
+                        <li class="item"><a href="index.jsp?view=company-list"><i class="fa fa-list" aria-hidden="true"></i>Listar</a></li>
+                        <li class="item"><a href="index.jsp?view=company-register"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
+                    </ul>
+                </li>-->
+
         <li class="item">
-            <a class="btn-drop" href="#"><i class="fa fa-user" aria-hidden="true"></i>Usuário <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <a class="btn-drop" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>endereço <i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <ul class="dropdown">
-                <li class="item"><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
-                <li class="item"><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Listar</a></li>
+                <li class="item"><a href="<%= Configs.getUrlAddressListAll()%>"><i class="fa fa-list" aria-hidden="true"></i>Listar</a></li>
+                <li class="item"><a href="<%= Configs.getUrlAddressRegister()%>"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
             </ul>
         </li>
 
-        <li class="item">
-            <a class="btn-drop" href="#"><i class="fa fa-diamond" aria-hidden="true"></i>Ofertas<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-                <li class="item"><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
-                <li class="item"><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Listar</a></li>
-            </ul>
-        </li>
+        <!--        <li class="item">
+                    <a class="btn-drop" href="#"><i class="fa fa-diamond" aria-hidden="true"></i>Ofertas<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                    <ul class="dropdown">
+                        <li class="item"><a href="index.jsp?view=offer-list"><i class="fa fa-list" aria-hidden="true"></i>Listar</a></li>
+                        <li class="item"><a href="index.jsp?view=offer-register"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
+                    </ul>
+                </li>-->
 
     </ul>
 
