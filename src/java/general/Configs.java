@@ -2,6 +2,7 @@ package general;
 
 public class Configs {
 
+    // Geral
     private static final String MAINURL;
     private static final String MAINURL_HOME;
     private static final String ABSPATH;
@@ -9,11 +10,18 @@ public class Configs {
     private static final String ABSPATH_VIEWS;
     private static final String PATH_VIEWS;
 
+    // URLs
     private static final String URL_ADDRESS_LIST_ALL;
     private static final String URL_ADDRESS_LIST_ONE;
     private static final String URL_ADDRESS_REGISTER;
     private static final String URL_ADDRESS_EDIT;
     private static final String URL_ADDRESS_DELETE;
+
+    // URLs
+    private static final String DB_DRIVER;
+    private static final String DB_URL;
+    private static final String DB_USER;
+    private static final String DB_PASS;
 
     private Configs() {
     }
@@ -31,6 +39,11 @@ public class Configs {
         URL_ADDRESS_REGISTER = MAINURL + "index.jsp?view=" + "address-register";
         URL_ADDRESS_EDIT = MAINURL + "index.jsp?view=" + "address-edit";
         URL_ADDRESS_DELETE = MAINURL + "index.jsp?view=" + "address-delete";
+
+        DB_DRIVER = "com.mysql.jdbc.Driver";
+        DB_URL = "jdbc:mysql://localhost:3306/magna";
+        DB_USER = "root";
+        DB_PASS = "";
     }
 
     public static String getMainUrl() {
@@ -71,5 +84,21 @@ public class Configs {
 
     public static String getUrlAddressDelete(String param) {
         return URL_ADDRESS_DELETE + "&id=" + param;
+    }
+
+    public static String getDbDriver() {
+        return DB_DRIVER;
+    }
+
+    public static String getDbUrl() {
+        return DB_URL;
+    }
+
+    public static String getDbUser() {
+        return DB_USER;
+    }
+
+    public static String getDbPass() {
+        return DB_PASS;
     }
 }
