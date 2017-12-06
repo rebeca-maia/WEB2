@@ -1,5 +1,24 @@
+<%@page import="general.App"%>
+<%@page import="dao.AddressDAO"%>
 <%@page import="general.Configs"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    App magnaApp = new App();
+
+    /**
+     * -------------------------------------------------------------------------
+     * | Processando a requisição
+     * -------------------------------------------------------------------------
+     */
+    if (request.getParameter("btnSubmit") != null) {
+%>
+<jsp:useBean id="address" class="model.bean.AddressBean" scope="request"/>
+<jsp:setProperty name="address" property="*"/>
+<%
+        AddressDAO dao = new AddressDAO();
+        dao.insert(address);
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -48,20 +67,22 @@
                         <div class="row">
                             <div class="col-6">
 
+                                <%= magnaApp.getMsgErrorHTML()%>
+
                                 <form class="form-data -block" action="" method="post">
 
                                     <div class="group">
                                         <label class="label" for="rua">Rua<span class="required">*</span></label>
-                                        <input class="field" id="rua" type="text" name="rua" value="<%= (request.getParameter("rua") != null) ? request.getParameter("rua") : ""%>" required="">
+                                        <input class="field" id="rua" type="text" name="rua" value="<%= (request.getParameter("rua") != null) ? request.getParameter("rua") : ""%>">
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="num">Número<span class="required">*</span></label>
-                                        <input class="field" id="num" type="text" name="num" value="<%= (request.getParameter("num") != null) ? request.getParameter("num") : ""%>" required="">
+                                        <label class="label" for="numero">Número<span class="required">*</span></label>
+                                        <input class="field" id="numero" type="text" name="numero" value="<%= (request.getParameter("numero") != null) ? request.getParameter("num") : ""%>">
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="bairro">Bairoo<span class="required">*</span></label>
+                                        <label class="label" for="bairro">Bairro<span class="required">*</span></label>
                                         <input class="field" id="bairro" type="text" name="bairro" value="<%= (request.getParameter("bairro") != null) ? request.getParameter("bairro") : ""%>">
                                     </div>
 
@@ -72,22 +93,22 @@
 
                                     <div class="group">
                                         <label class="label" for="cep">CEP<span class="required">*</span></label>
-                                        <input class="field cep" id="cep" type="text" name="cep" value="<%= (request.getParameter("cep") != null) ? request.getParameter("cep") : ""%>" required="">
+                                        <input class="field cep" id="cep" type="text" name="cep" value="<%= (request.getParameter("cep") != null) ? request.getParameter("cep") : ""%>">
                                     </div>
 
                                     <div class="group">
                                         <label class="label" for="cidade">Cidade<span class="required">*</span></label>
-                                        <input class="field" id="cidade" type="text" name="cidade" value="<%= (request.getParameter("cidade") != null) ? request.getParameter("cidade") : ""%>" required="">
+                                        <input class="field" id="cidade" type="text" name="cidade" value="<%= (request.getParameter("cidade") != null) ? request.getParameter("cidade") : ""%>">
                                     </div>
 
                                     <div class="group">
                                         <label class="label" for="estado">Estado<span class="required">*</span></label>
-                                        <input class="field" id="estado" type="text" name="estado" value="<%= (request.getParameter("estado") != null) ? request.getParameter("estado") : ""%>" required="">
+                                        <input class="field" id="estado" type="text" name="estado" value="<%= (request.getParameter("estado") != null) ? request.getParameter("estado") : ""%>">
                                     </div>
 
                                     <div class="group">
                                         <label class="label" for="pais">País<span class="required">*</span></label>
-                                        <input class="field" id="pais" type="text" name="pais" value="<%= (request.getParameter("pais") != null) ? request.getParameter("pais") : ""%>" required="">
+                                        <input class="field" id="pais" type="text" name="pais" value="<%= (request.getParameter("pais") != null) ? request.getParameter("pais") : ""%>">
                                     </div>
 
                                     <div class="group">

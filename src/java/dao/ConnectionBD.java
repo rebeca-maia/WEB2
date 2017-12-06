@@ -36,6 +36,7 @@ public class ConnectionBD {
         if (con != null) {
             try {
                 con.close();
+                ConnectionBD.conn = null;
             } catch (SQLException ex) {
                 System.err.println("Close connection error" + ex);
             }

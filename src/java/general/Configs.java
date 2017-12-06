@@ -41,7 +41,7 @@ public class Configs {
         URL_ADDRESS_DELETE = MAINURL + "index.jsp?view=" + "address-delete";
 
         DB_DRIVER = "com.mysql.jdbc.Driver";
-        DB_URL = "jdbc:mysql://localhost:3306/magna";
+        DB_URL = "jdbc:mysql://localhost:3306/magna?useUnicode=yes&characterEncoding=UTF-8";
         DB_USER = "root";
         DB_PASS = "";
     }

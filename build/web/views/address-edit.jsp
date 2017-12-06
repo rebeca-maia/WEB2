@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="bairro">Bairoo<span class="required">*</span></label>
+                                        <label class="label" for="bairro">Bairro<span class="required">*</span></label>
                                         <input class="field" id="bairro" type="text" name="bairro" value="Vila Matoso">
                                     </div>
 

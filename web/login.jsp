@@ -1,7 +1,8 @@
 <%@page import="general.Configs"%>
 <%@page import="general.App"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    App magnaApp = new App(request.getParameter("view"));
+    App magnaApp = new App();
 
     // Verificando se esta logado
     if (magnaApp.isLoggedIn(session.getAttribute("id"))) {
@@ -40,7 +41,6 @@
         }
     }
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
