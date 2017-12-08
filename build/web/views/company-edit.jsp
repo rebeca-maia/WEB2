@@ -139,12 +139,12 @@
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="senha1">Senha<span class="required">*</span></label>
+                                        <label class="label" for="senha1">Senha</label>
                                         <input class="field" id="senha1" type="password" name="senha1" value="" placeholder="Deixe em branco caso não queira alterar">
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="senha2">Confirme a Senha<span class="required">*</span></label>
+                                        <label class="label" for="senha2">Confirme a Senha</label>
                                         <input class="field" id="senha2" type="password" name="senha2" value="">
                                     </div>
 

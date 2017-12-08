@@ -191,7 +191,7 @@ public class CompanyDAO {
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "DELETE FROM endereco WHERE idEndereco = ?";
+        String sql = "DELETE FROM empresa WHERE idEmpresa = ?";
 
         PreparedStatement stmt = null;
 
