@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-12">
                             <ul class="breadcrumbs">
-                                <li class="item"><a href=""><i class="fa fa-caret-right" aria-hidden="true"></i>InÌcio</a></li>
+                                <li class="item"><a href=""><i class="fa fa-caret-right" aria-hidden="true"></i>In√≠cio</a></li>
                                 <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Erro 404</li>
                             </ul>
                         </div>
@@ -45,8 +45,8 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <h4><i class="fa fa-warning"></i> Oops! P·gina n„o encontrada.</h4>
-                                <p>N„o conseguimos encontrar a p·gina que estava procurando. Retorne ao <a href="<%= Configs.getMainUrlHome()%>">p·gina inicial.</a></p>
+                                <h4><i class="fa fa-warning"></i> Oops! P√°gina n√£o encontrada.</h4>
+                                <p>N√£o conseguimos encontrar a p√°gina que estava procurando. Retorne ao <a href="<%= Configs.getMainUrlHome()%>">p√°gina inicial.</a></p>
                             </div>
                         </div>
                     </div>

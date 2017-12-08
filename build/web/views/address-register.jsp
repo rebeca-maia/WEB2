@@ -12,11 +12,11 @@
      */
     if (request.getParameter("btnSubmit") != null) {
 %>
-<jsp:useBean id="address" class="model.bean.AddressBean" scope="request"/>
-<jsp:setProperty name="address" property="*"/>
+<%--<jsp:useBean id="address" class="model.bean.AddressBean" scope="request"/>
+<jsp:setProperty name="address" property="*"/>--%>
 <%
-        AddressDAO dao = new AddressDAO();
-        dao.insert(address);
+//        AddressDAO dao = new AddressDAO();
+//        dao.insert(address);
     }
 %>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@
 
                                 <%= magnaApp.getMsgErrorHTML()%>
 
-                                <form class="form-data -block" action="" method="post">
+                                <form class="form-data -block" action="" method="post" accept-charset="iso-8859-1,utf-8">
 
                                     <div class="group">
                                         <label class="label" for="rua">Rua<span class="required">*</span></label>

@@ -5,11 +5,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.AddressBean;
+import model.Address;
 
 public class AddressDAO {
 
-    public void insert(AddressBean address) {
+    public void insert(Address address) {
 
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();

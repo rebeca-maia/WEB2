@@ -1,6 +1,7 @@
 <%@page import="general.App"%>
 <%@page import="general.Configs"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8");%>
 <%
     App magnaApp = new App(request.getParameter("view"));
 
