@@ -110,4 +110,9 @@ public class Company {
             this.senha = senha1;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Company{" + "idCompany=" + idCompany + ", tipo=" + tipo + ", cnpj=" + cnpj + ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", endereco=" + endereco + ", email=" + email + ", senha=" + senha + '}';
+    }
 }

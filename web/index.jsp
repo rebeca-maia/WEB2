@@ -6,7 +6,7 @@
     App magnaApp = new App(request.getParameter("view"));
 
     // Verificando se não esta logado
-    if (!magnaApp.isLoggedIn(session.getAttribute("id"))) {
+    if (!magnaApp.isLoggedIn(session.getAttribute("user_logged"))) {
         response.sendRedirect(Configs.getMainUrl() + "login.jsp");
     }
 %>

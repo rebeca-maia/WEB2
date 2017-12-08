@@ -106,7 +106,7 @@
 
                                     <div class="group">
                                         <label class="label" for="cnpj">CNPJ<span class="required">*</span></label>
-                                        <input class="field" id="cnpj" type="text" name="cnpj" value="<%= (request.getParameter("cnpj") != null) ? request.getParameter("cnpj") : ""%>" required="">
+                                        <input class="field cnpj" id="cnpj" type="text" name="cnpj" value="<%= (request.getParameter("cnpj") != null) ? request.getParameter("cnpj") : ""%>" required="">
                                     </div>
 
                                     <div class="group">

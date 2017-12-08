@@ -1,11 +1,14 @@
+<%@page import="general.Util"%>
 <%@page import="general.Configs"%>
 <%@page import="general.App"%>
+<%@page import="model.Company"%>
+<%@page import="dao.CompanyDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     App magnaApp = new App();
 
     // Verificando se esta logado
-    if (magnaApp.isLoggedIn(session.getAttribute("id"))) {
+    if (magnaApp.isLoggedIn(session.getAttribute("user_logged"))) {
         response.sendRedirect(Configs.getMainUrlHome());
     }
 
@@ -16,28 +19,29 @@
      */
     if (request.getParameter("btnLogin") != null) {
 
-        // Captura dos dados
-        String email = request.getParameter("email");
-        String pass = request.getParameter("pass");
+        try {
 
-        // Validação dos dados
-        if (email.equals("")) {
-            magnaApp.addMsgError("O campo Email é obrigatório!");
-        }
+            Company user = new Company();
+            CompanyDAO dao = new CompanyDAO();
 
-        if (pass.equals("")) {
-            magnaApp.addMsgError("O campo Senha é obrigatório!");
+            // Captura dos dados
+            user.setEmail(request.getParameter("email"));
+            user.setSenha(request.getParameter("pass"));
 
-        } else if (!email.equals("teste@gmail.com") || !pass.equals("123")) {
-            magnaApp.addMsgError("Email ou senha estão inválidos!");
+            Company result = dao.authenticate(user);
 
-        } else {
+            if (result != null) {
 
-            session.setAttribute("id", 1);
-            session.setAttribute("nome", "Albert Einstein");
-            session.setAttribute("email", email);
+                session.setAttribute("user_logged", result);
 
-            response.sendRedirect(Configs.getMainUrlHome());
+                response.sendRedirect(Configs.getMainUrlHome());
+
+            } else {
+                magnaApp.addMsgError("Email ou senha estão inválidos!");
+            }
+
+        } catch (Exception e) {
+            magnaApp.addMsgError(e.getMessage());
         }
     }
 %>
@@ -54,19 +58,10 @@
     <body>
 
         <div class="container">
-            <div class="panel-main">
+            <div class="panel-main -login">
                 <div class="row">
 
-                    <div class="col-6">
-                        <h1>Magna</h1>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et leo lectus. Praesent neque diam, vestibulum at nisi id, pharetra hendrerit mi. Ut id placerat lacus, eget placerat lorem. Nunc tempor nulla sit amet velit dapibus malesuada ac non enim. Etiam sit amet commodo nisl. Pellentesque nec nulla congue, lobortis ex eu, rhoncus ex.</p>
-
-                    </div>
-
-                    <div class="col-2"></div>
-
-                    <div class="col-4">
+                    <div class="col-12">
 
                         <div class="login">
                             <h4>Faça Login</h4>
@@ -89,7 +84,7 @@
                                     <button class="btn -success" type="submit" name="btnLogin">Entrar</button>
                                 </div>
 
-                                <a href="cadastrar.html">Cadastra-se!</a>
+                                <!--<a href="cadastrar.html">Cadastra-se!</a>-->
 
                             </form>
                         </div>

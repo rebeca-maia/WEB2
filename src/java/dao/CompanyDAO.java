@@ -27,7 +27,6 @@ public class CompanyDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Company company = null;
-        Address address = null;
 
         try {
             stmt = con.prepareStatement(sql);
@@ -38,7 +37,7 @@ public class CompanyDAO {
             if (rs.next()) {
 
                 company = new Company();
-                address = new Address();
+                Address address = new Address();
 
                 company.setIdCompany(rs.getInt("id_empresa"));
                 company.setTipo(rs.getString("tipo"));
@@ -68,7 +67,6 @@ public class CompanyDAO {
         } finally {
             ConnectionBD.closeConn(con, stmt, rs);
         }
-
     }
 
     public List<Company> selectAll() throws Exception {
@@ -206,6 +204,54 @@ public class CompanyDAO {
 
         } finally {
             ConnectionBD.closeConn(con, stmt);
+        }
+    }
+
+    public Company authenticate(Company user) throws Exception {
+
+        ConnectionBD.startConn();
+        Connection con = ConnectionBD.getConn();
+
+        String sql = "SELECT id_empresa, tipo, nome_fantasia, email, senha "
+                + "FROM empresa "
+                + "WHERE email = ? "
+                + "LIMIT 1";
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Company company = null;
+
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, user.getEmail());
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                company = new Company();
+
+                company.setIdCompany(rs.getInt("id_empresa"));
+                company.setTipo(rs.getString("tipo"));
+                company.setNomeFantasia(rs.getString("nome_fantasia"));
+                company.setEmail(rs.getString("email"));
+                company.setSenha(rs.getString("senha"));
+                user.setSenha(Util.MD5(user.getSenha()));
+
+                if (company.getSenha().equals(user.getSenha())) {
+                    return company;
+                }
+
+                return null;
+            }
+
+            return company;
+
+        } catch (SQLException ex) {
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
+
+        } finally {
+            ConnectionBD.closeConn(con, stmt, rs);
         }
     }
 }
