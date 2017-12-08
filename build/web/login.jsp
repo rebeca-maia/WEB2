@@ -71,7 +71,7 @@
                         <div class="login">
                             <h4>Faça Login</h4>
 
-                            <%= magnaApp.getMsgErrorHTML()%>
+                            <%= magnaApp.getMsgHTML()%>
 
                             <form class="form-data -block" action="" method="post">
 

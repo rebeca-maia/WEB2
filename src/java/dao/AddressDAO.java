@@ -9,7 +9,7 @@ import model.Address;
 
 public class AddressDAO {
 
-    public void insert(Address address) {
+    public void insert(Address address) throws Exception {
 
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
@@ -23,7 +23,7 @@ public class AddressDAO {
         try {
             stmt = con.prepareStatement(sql);
             stmt.setString(1, address.getRua());
-            stmt.setInt(2, address.getNumero());
+            stmt.setString(2, address.getNumero());
             stmt.setString(3, address.getBairro());
             stmt.setString(4, address.getComplemento());
             stmt.setString(5, address.getCep());
@@ -33,10 +33,8 @@ public class AddressDAO {
 
             stmt.executeUpdate();
 
-            System.err.println("Cadastrado com sucesso!");
-
         } catch (SQLException ex) {
-            System.err.println("Erro no cadastro!" + ex);
+            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt);

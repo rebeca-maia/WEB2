@@ -56,8 +56,8 @@
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="num">Número<span class="required">*</span></label>
-                                        <input class="field" id="num" type="text" name="num" value="257" required="">
+                                        <label class="label" for="numero">Número<span class="required">*</span></label>
+                                        <input class="field" id="numero" type="text" name="numero" value="257" required="">
                                     </div>
 
                                     <div class="group">

@@ -7,9 +7,11 @@ public final class App {
 
     private String view;
     private ArrayList<String> msgError;
+    private ArrayList<String> msgSuccess;
 
     public App() {
         this.msgError = new ArrayList<>();
+        this.msgSuccess = new ArrayList<>();
     }
 
     public App(String view) {
@@ -46,7 +48,15 @@ public final class App {
         return this.msgError.size();
     }
 
-    public String getMsgErrorHTML() {
+    public void addMsgSuccess(String message) {
+        this.msgSuccess.add(message);
+    }
+
+    public int getSizeMsgSuccess() {
+        return this.msgSuccess.size();
+    }
+
+    public String getMsgHTMLError() {
 
         String html = "";
 
@@ -56,6 +66,30 @@ public final class App {
             html = msgError.stream().map((msg) -> "<li>" + msg + "</li>").reduce(html, String::concat);
             html += "</ul></div>";
         }
+
+        return html;
+    }
+
+    public String getMsgHTMLSuccess() {
+
+        String html = "";
+
+        if (!this.msgSuccess.isEmpty()) {
+
+            html += "<div class=\"alert -success\"><ul>";
+            html = msgSuccess.stream().map((msg) -> "<li>" + msg + "</li>").reduce(html, String::concat);
+            html += "</ul></div>";
+        }
+
+        return html;
+    }
+
+    public String getMsgHTML() {
+
+        String html = "";
+
+        html = this.getMsgHTMLError();
+        html += this.getMsgHTMLSuccess();
 
         return html;
     }

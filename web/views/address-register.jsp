@@ -1,3 +1,4 @@
+<%@page import="model.Address"%>
 <%@page import="general.App"%>
 <%@page import="dao.AddressDAO"%>
 <%@page import="general.Configs"%>
@@ -11,12 +12,26 @@
      * -------------------------------------------------------------------------
      */
     if (request.getParameter("btnSubmit") != null) {
-%>
-<%--<jsp:useBean id="address" class="model.bean.AddressBean" scope="request"/>
-<jsp:setProperty name="address" property="*"/>--%>
-<%
-//        AddressDAO dao = new AddressDAO();
-//        dao.insert(address);
+
+        try {
+            Address address = new Address();
+            address.setRua(request.getParameter("rua"));
+            address.setNumero(request.getParameter("numero"));
+            address.setBairro(request.getParameter("bairro"));
+            address.setComplemento(request.getParameter("complemento"));
+            address.setCep(request.getParameter("cep"));
+            address.setCidade(request.getParameter("cidade"));
+            address.setEstado(request.getParameter("estado"));
+            address.setPais(request.getParameter("pais"));
+
+            AddressDAO dao = new AddressDAO();
+            dao.insert(address);
+
+            magnaApp.addMsgSuccess("Registro cadastrado com sucesso.");
+
+        } catch (Exception e) {
+            magnaApp.addMsgError(e.getMessage());
+        }
     }
 %>
 <!DOCTYPE html>
@@ -67,7 +82,7 @@
                         <div class="row">
                             <div class="col-6">
 
-                                <%= magnaApp.getMsgErrorHTML()%>
+                                <%= magnaApp.getMsgHTML()%>
 
                                 <form class="form-data -block" action="" method="post" accept-charset="iso-8859-1,utf-8">
 
@@ -78,7 +93,7 @@
 
                                     <div class="group">
                                         <label class="label" for="numero">Número<span class="required">*</span></label>
-                                        <input class="field" id="numero" type="text" name="numero" value="<%= (request.getParameter("numero") != null) ? request.getParameter("num") : ""%>">
+                                        <input class="field" id="numero" type="text" name="numero" value="<%= (request.getParameter("numero") != null) ? request.getParameter("numero") : ""%>">
                                     </div>
 
                                     <div class="group">
