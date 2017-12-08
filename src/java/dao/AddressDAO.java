@@ -163,4 +163,26 @@ public class AddressDAO {
         }
     }
 
+    public void delete(int id) throws Exception {
+
+        ConnectionBD.startConn();
+        Connection con = ConnectionBD.getConn();
+
+        String sql = "DELETE FROM endereco WHERE idEndereco = ?";
+
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+
+        } finally {
+            ConnectionBD.closeConn(con, stmt);
+        }
+    }
 }

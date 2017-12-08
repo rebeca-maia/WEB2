@@ -1,5 +1,26 @@
+<%@page import="java.util.List"%>
 <%@page import="general.Configs"%>
+<%@page import="general.App"%>
+<%@page import="model.Address"%>
+<%@page import="dao.AddressDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    App magnaApp = new App();
+
+    // Id do registro atual
+    int id = (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) ? Integer.parseInt(request.getParameter("id")) : 0;
+
+    try {
+
+        AddressDAO dao = new AddressDAO();
+        dao.delete(id);
+
+        magnaApp.addMsgSuccess("Registro excluído com sucesso.");
+
+    } catch (Exception e) {
+        magnaApp.addMsgError(e.getMessage());
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -47,7 +68,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <div class="alert -success"><ul><li>O registro foi excluído com sucesso!</li></ul></div>
+                                <%= magnaApp.getMsgHTML()%>
                             </div>
                         </div>
                     </div>

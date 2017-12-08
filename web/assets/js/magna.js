@@ -13,4 +13,14 @@
      | MASK
      */
     $('.cep').mask('00000-000');
+
+
+    $(".btn-delete").click(function() {
+
+        if (confirm('Deseja realmente excluir esse registro?') === true) {
+            document.location.href = $(this).attr('href');
+        }
+
+        return false;
+    });
 });
