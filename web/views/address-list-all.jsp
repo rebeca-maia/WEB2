@@ -85,9 +85,9 @@
                                             <td><%= result.get(i).getEstado()%></td>
                                             <td><%= result.get(i).getPais()%></td>
                                             <td class="actions">
-                                                <a href="<%= Configs.getUrlAddressListOne("1")%>" class="btn -primary"><i class="fa fa-eye"></i></a>
-                                                <a href="<%= Configs.getUrlAddressEdit("1")%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="<%= Configs.getUrlAddressDelete("1")%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
+                                                <a href="<%= Configs.getUrlAddressListOne(result.get(i).getIdEndereco())%>" class="btn -primary"><i class="fa fa-eye"></i></a>
+                                                <a href="<%= Configs.getUrlAddressEdit(result.get(i).getIdEndereco())%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="<%= Configs.getUrlAddressDelete(result.get(i).getIdEndereco())%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
                                             </td>
                                         </tr>
                                         <%

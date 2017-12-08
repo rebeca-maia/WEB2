@@ -1,4 +1,7 @@
 <%@page import="general.Configs"%>
+<%@page import="general.App"%>
+<%@page import="model.Address"%>
+<%@page import="dao.AddressDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,17 +52,39 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <p><strong>ID:</strong> 1</p>
-                                <p><strong>Rua</strong> R. Felipe Santiago</p>
-                                <p><strong>Número</strong> 257</p>
-                                <p><strong>Bairro</strong> Vila Matoso</p>
-                                <p><strong>Complemento</strong> Próximo a Policlínica</p>
-                                <p><strong>CEP</strong> 62900-000</p>
-                                <p><strong>Cidade</strong> Russas</p>
-                                <p><strong>Estado</strong> Ceará</p>
-                                <p><strong>País</strong> Brasil</p>
 
-                                <a href="<%= Configs.getUrlAddressEdit("1")%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
+                                <%
+                                    // Id do registro atual
+                                    int id = (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) ? Integer.parseInt(request.getParameter("id")) : 0;
+
+                                    AddressDAO dao = new AddressDAO();
+                                    Address result = dao.selectOne(id);
+
+                                    if (result != null) {
+                                %>
+                                <p><strong>ID:</strong> <%= result.getIdEndereco()%></p>
+                                <p><strong>Rua</strong> <%= result.getRua()%></p>
+                                <p><strong>Número</strong> <%= result.getNumero()%></p>
+                                <p><strong>Bairro</strong> <%= result.getBairro()%></p>
+                                <p><strong>Complemento</strong> <%= result.getComplemento()%></p>
+                                <p><strong>CEP</strong> <%= result.getCep()%></p>
+                                <p><strong>Cidade</strong> <%= result.getCidade()%></p>
+                                <p><strong>Estado</strong> <%= result.getEstado()%></p>
+                                <p><strong>País</strong> <%= result.getPais()%></p>
+
+                                <a href="<%= Configs.getUrlAddressEdit(result.getIdEndereco())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
+
+                                <%
+                                } else {
+                                %>
+                                <div class="alert -danger">
+                                    <ul>
+                                        <li>Registro não encontrado!</li>
+                                    </ul>
+                                </div>
+                                <%
+                                    }
+                                %>
                             </div>
                         </div>
 

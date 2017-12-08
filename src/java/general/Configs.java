@@ -70,7 +70,7 @@ public class Configs {
         return URL_ADDRESS_LIST_ALL;
     }
 
-    public static String getUrlAddressListOne(String param) {
+    public static String getUrlAddressListOne(int param) {
         return URL_ADDRESS_LIST_ONE + "&id=" + param;
     }
 
@@ -78,11 +78,11 @@ public class Configs {
         return URL_ADDRESS_REGISTER;
     }
 
-    public static String getUrlAddressEdit(String param) {
+    public static String getUrlAddressEdit(int param) {
         return URL_ADDRESS_EDIT + "&id=" + param;
     }
 
-    public static String getUrlAddressDelete(String param) {
+    public static String getUrlAddressDelete(int param) {
         return URL_ADDRESS_DELETE + "&id=" + param;
     }
 
