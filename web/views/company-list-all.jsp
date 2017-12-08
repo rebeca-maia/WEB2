@@ -76,16 +76,16 @@
                                         %>
 
                                         <tr>
-                                            <td><%= result.get(i).getId()%></td>
+                                            <td><%= result.get(i).getIdCompanay()%></td>
                                             <td><%= result.get(i).getTipo()%></td>
                                             <td><%= result.get(i).getCnpj()%></td>
                                             <td><%= result.get(i).getRazaoSocial()%></td>
                                             <td><%= result.get(i).getNomeFantasia()%></td>
                                             <td><%= result.get(i).getEmail()%></td>
                                             <td class="actions">
-                                                <a href="<%= Configs.getUrlCompanyListOne(result.get(i).getId())%>" class="btn -primary"><i class="fa fa-eye"></i></a>
-                                                <a href="<%= Configs.getUrlCompanyEdit(result.get(i).getId())%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="<%= Configs.getUrlCompanyDelete(result.get(i).getId())%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyListOne(result.get(i).getIdCompanay())%>" class="btn -primary"><i class="fa fa-eye"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyEdit(result.get(i).getIdCompanay())%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyDelete(result.get(i).getIdCompanay())%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
                                             </td>
                                         </tr>
                                         <%
@@ -93,7 +93,7 @@
                                         %>
 
                                         <tr>
-                                            <td colspan="8"><b><%= result.size()%> registro(s) encontrado(s).</b></td>
+                                            <td colspan="7"><b><%= result.size()%> registro(s) encontrado(s).</b></td>
                                         </tr>
 
                                     </tbody>

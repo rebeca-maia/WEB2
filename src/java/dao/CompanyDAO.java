@@ -20,8 +20,8 @@ public class CompanyDAO {
 
         String sql = "SELECT *"
                 + "FROM empresa AS E "
-                + "INNER JOIN endereco AS EN ON E.idEndereco = EN.idEndereco "
-                + "WHERE idEmpresa = ? "
+                + "INNER JOIN endereco AS EN ON E.id_endereco = EN.id_endereco "
+                + "WHERE id_empresa = ? "
                 + "LIMIT 1";
 
         PreparedStatement stmt = null;
@@ -40,14 +40,14 @@ public class CompanyDAO {
                 company = new Company();
                 address = new Address();
 
-                company.setId(rs.getInt("IdEmpresa"));
+                company.setIdCompany(rs.getInt("id_empresa"));
                 company.setTipo(rs.getString("tipo"));
                 company.setCnpj(rs.getString("cnpj"));
                 company.setRazaoSocial(rs.getString("razao_social"));
                 company.setNomeFantasia(rs.getString("nome_fantasia"));
                 company.setEmail(rs.getString("email"));
 
-                address.setIdEndereco(rs.getInt("IdEndereco"));
+                address.setIdEndereco(rs.getInt("id_endereco"));
                 address.setRua(rs.getString("rua"));
                 address.setNumero(rs.getString("numero"));
                 address.setBairro(rs.getString("bairro"));
@@ -91,7 +91,7 @@ public class CompanyDAO {
 
                 Company company = new Company();
 
-                company.setId(rs.getInt("IdEmpresa"));
+                company.setIdCompany(rs.getInt("id_empresa"));
                 company.setTipo(rs.getString("tipo"));
                 company.setCnpj(rs.getString("cnpj"));
                 company.setRazaoSocial(rs.getString("razao_social"));
@@ -117,7 +117,7 @@ public class CompanyDAO {
         Connection con = ConnectionBD.getConn();
 
         String sql = "INSERT INTO "
-                + "empresa (idEndereco, tipo, cnpj, razao_social, nome_fantasia, email, senha) "
+                + "empresa (id_endereco, tipo, cnpj, razao_social, nome_fantasia, email, senha) "
                 + "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement stmt = null;
@@ -148,14 +148,14 @@ public class CompanyDAO {
         Connection con = ConnectionBD.getConn();
 
         String sql = "UPDATE empresa "
-                + "SET idEndereco = ?, tipo = ?, cnpj = ?, razao_social = ?, "
+                + "SET id_endereco = ?, tipo = ?, cnpj = ?, razao_social = ?, "
                 + "nome_fantasia = ?, email = ?";
 
         if (company.getSenha() != null) {
             sql += ", senha = ?";
         }
 
-        sql += " WHERE idEmpresa = ?";
+        sql += " WHERE id_empresa = ?";
 
         PreparedStatement stmt = null;
 
@@ -170,10 +170,10 @@ public class CompanyDAO {
 
             if (company.getSenha() != null) {
                 stmt.setString(7, Util.MD5(company.getSenha()));
-                stmt.setInt(8, company.getId());
+                stmt.setInt(8, company.getIdCompanay());
 
             } else {
-                stmt.setInt(7, company.getId());
+                stmt.setInt(7, company.getIdCompanay());
             }
 
             stmt.executeUpdate();
@@ -191,7 +191,7 @@ public class CompanyDAO {
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "DELETE FROM empresa WHERE idEmpresa = ?";
+        String sql = "DELETE FROM empresa WHERE id_empresa = ?";
 
         PreparedStatement stmt = null;
 

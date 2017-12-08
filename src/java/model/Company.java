@@ -2,7 +2,7 @@ package model;
 
 public class Company {
 
-    private int id;
+    private int idCompany;
     private String tipo;
     private String cnpj;
     private String razaoSocial;
@@ -11,12 +11,12 @@ public class Company {
     private String email;
     private String senha;
 
-    public int getId() {
-        return id;
+    public int getIdCompanay() {
+        return idCompany;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCompany(int id) {
+        this.idCompany = id;
     }
 
     public String getTipo() {

@@ -63,7 +63,7 @@
 
                                     if (result != null) {
                                 %>
-                                <p><strong>ID:</strong> <%= result.getId()%></p>
+                                <p><strong>ID:</strong> <%= result.getIdCompanay()%></p>
                                 <p><strong>Tipo:</strong> <%= result.getTipo()%></p>
                                 <p><strong>CNPJ:</strong> <%= result.getCnpj()%></p>
                                 <p><strong>Razão Social:</strong> <%= result.getRazaoSocial()%></p>
@@ -82,7 +82,7 @@
                                 <p><strong>Estado:</strong> <%= result.getEndereco().getEstado()%></p>
                                 <p><strong>País:</strong> <%= result.getEndereco().getPais()%></p>
 
-                                <a href="<%= Configs.getUrlCompanyEdit(result.getId())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
+                                <a href="<%= Configs.getUrlCompanyEdit(result.getIdCompanay())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
 
                                 <%
                                 } else {

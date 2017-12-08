@@ -16,7 +16,7 @@ public class AddressDAO {
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "SELECT * FROM endereco WHERE idEndereco = ? LIMIT 1";
+        String sql = "SELECT * FROM endereco WHERE id_endereco = ? LIMIT 1";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -32,7 +32,7 @@ public class AddressDAO {
 
                 address = new Address();
 
-                address.setIdEndereco(rs.getInt("IdEndereco"));
+                address.setIdEndereco(rs.getInt("id_endereco"));
                 address.setRua(rs.getString("rua"));
                 address.setNumero(rs.getString("numero"));
                 address.setBairro(rs.getString("bairro"));
@@ -74,7 +74,7 @@ public class AddressDAO {
 
                 Address address = new Address();
 
-                address.setIdEndereco(rs.getInt("IdEndereco"));
+                address.setIdEndereco(rs.getInt("id_endereco"));
                 address.setRua(rs.getString("rua"));
                 address.setNumero(rs.getString("numero"));
                 address.setBairro(rs.getString("bairro"));
@@ -138,7 +138,7 @@ public class AddressDAO {
         String sql = "UPDATE endereco "
                 + "SET rua = ?, numero = ?, bairro = ?, complemento = ?,"
                 + "cep = ?, cidade = ?, estado = ?, pais = ?"
-                + "WHERE idEndereco = ?";
+                + "WHERE id_endereco = ?";
 
         PreparedStatement stmt = null;
 
@@ -169,7 +169,7 @@ public class AddressDAO {
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "DELETE FROM endereco WHERE idEndereco = ?";
+        String sql = "DELETE FROM endereco WHERE id_endereco = ?";
 
         PreparedStatement stmt = null;
 

@@ -24,7 +24,7 @@
             int idEndereco = (request.getParameter("idEndereco") != null && !request.getParameter("idEndereco").isEmpty()) ? Integer.parseInt(request.getParameter("idEndereco")) : 0;
             address.setIdEndereco(idEndereco);
 
-            company.setId(id);
+            company.setIdCompany(id);
             company.setEndereco(address);
             company.setTipo(request.getParameter("tipo"));
             company.setCnpj(request.getParameter("cnpj"));
