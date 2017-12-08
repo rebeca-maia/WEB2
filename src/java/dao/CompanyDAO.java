@@ -132,8 +132,6 @@ public class CompanyDAO {
             stmt.setString(6, company.getEmail());
             stmt.setString(7, Util.MD5(company.getSenha()));
 
-            System.out.println(Util.MD5(company.getSenha()));
-
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -144,29 +142,39 @@ public class CompanyDAO {
         }
     }
 
-    public void update(Address address) throws Exception {
+    public void update(Company company) throws Exception {
 
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "UPDATE endereco "
-                + "SET rua = ?, numero = ?, bairro = ?, complemento = ?,"
-                + "cep = ?, cidade = ?, estado = ?, pais = ?"
-                + "WHERE idEndereco = ?";
+        String sql = "UPDATE empresa "
+                + "SET idEndereco = ?, tipo = ?, cnpj = ?, razao_social = ?, "
+                + "nome_fantasia = ?, email = ?";
+
+        if (company.getSenha() != null) {
+            sql += ", senha = ?";
+        }
+
+        sql += " WHERE idEmpresa = ?";
 
         PreparedStatement stmt = null;
 
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, address.getRua());
-            stmt.setString(2, address.getNumero());
-            stmt.setString(3, address.getBairro());
-            stmt.setString(4, address.getComplemento());
-            stmt.setString(5, address.getCep());
-            stmt.setString(6, address.getCidade());
-            stmt.setString(7, address.getEstado());
-            stmt.setString(8, address.getPais());
-            stmt.setInt(9, address.getIdEndereco());
+            stmt.setInt(1, company.getEndereco().getIdEndereco());
+            stmt.setString(2, company.getTipo());
+            stmt.setString(3, company.getCnpj());
+            stmt.setString(4, company.getRazaoSocial());
+            stmt.setString(5, company.getNomeFantasia());
+            stmt.setString(6, company.getEmail());
+
+            if (company.getSenha() != null) {
+                stmt.setString(7, Util.MD5(company.getSenha()));
+                stmt.setInt(8, company.getId());
+
+            } else {
+                stmt.setInt(7, company.getId());
+            }
 
             stmt.executeUpdate();
 
