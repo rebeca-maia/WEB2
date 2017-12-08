@@ -12,15 +12,20 @@ import model.Company;
 
 public class CompanyDAO {
 
-    public Address selectOne(int id) throws Exception {
+    public Company selectOne(int id) throws Exception {
 
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "SELECT * FROM endereco WHERE idEndereco = ? LIMIT 1";
+        String sql = "SELECT *"
+                + "FROM empresa AS E "
+                + "INNER JOIN endereco AS EN ON E.idEndereco = EN.idEndereco "
+                + "WHERE idEmpresa = ? "
+                + "LIMIT 1";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
+        Company company = null;
         Address address = null;
 
         try {
@@ -31,7 +36,15 @@ public class CompanyDAO {
 
             if (rs.next()) {
 
+                company = new Company();
                 address = new Address();
+
+                company.setId(rs.getInt("IdEmpresa"));
+                company.setTipo(rs.getString("tipo"));
+                company.setCnpj(rs.getString("cnpj"));
+                company.setRazaoSocial(rs.getString("razao_social"));
+                company.setNomeFantasia(rs.getString("nome_fantasia"));
+                company.setEmail(rs.getString("email"));
 
                 address.setIdEndereco(rs.getInt("IdEndereco"));
                 address.setRua(rs.getString("rua"));
@@ -42,9 +55,11 @@ public class CompanyDAO {
                 address.setCidade(rs.getString("cidade"));
                 address.setEstado(rs.getString("estado"));
                 address.setPais(rs.getString("pais"));
+
+                company.setEndereco(address);
             }
 
-            return address;
+            return company;
 
         } catch (SQLException ex) {
             throw new Exception("Erro! A comunicação com o banco de dados falhou.");

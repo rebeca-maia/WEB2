@@ -63,14 +63,14 @@
                                     if (result != null) {
                                 %>
                                 <p><strong>ID:</strong> <%= result.getIdEndereco()%></p>
-                                <p><strong>Rua</strong> <%= result.getRua()%></p>
-                                <p><strong>Número</strong> <%= result.getNumero()%></p>
-                                <p><strong>Bairro</strong> <%= result.getBairro()%></p>
-                                <p><strong>Complemento</strong> <%= result.getComplemento()%></p>
-                                <p><strong>CEP</strong> <%= result.getCep()%></p>
-                                <p><strong>Cidade</strong> <%= result.getCidade()%></p>
-                                <p><strong>Estado</strong> <%= result.getEstado()%></p>
-                                <p><strong>País</strong> <%= result.getPais()%></p>
+                                <p><strong>Rua:</strong> <%= result.getRua()%></p>
+                                <p><strong>Número:</strong> <%= result.getNumero()%></p>
+                                <p><strong>Bairro:</strong> <%= result.getBairro()%></p>
+                                <p><strong>Complemento:</strong> <%= result.getComplemento()%></p>
+                                <p><strong>CEP:</strong> <%= result.getCep()%></p>
+                                <p><strong>Cidade:</strong> <%= result.getCidade()%></p>
+                                <p><strong>Estado:</strong> <%= result.getEstado()%></p>
+                                <p><strong>País:</strong> <%= result.getPais()%></p>
 
                                 <a href="<%= Configs.getUrlAddressEdit(result.getIdEndereco())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
 

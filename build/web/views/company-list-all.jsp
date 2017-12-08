@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <base href="<%= Configs.getMainUrl()%>"/>
 
-        <title>Lista de Endereços | MAGNA</title>
+        <title>Lista de Empresas | MAGNA</title>
 
         <!-- Magna Imports Header -->
         <%@ include file="../inc/header-imports.jsp" %>
@@ -38,7 +38,7 @@
                         <div class="col-12">
                             <ul class="breadcrumbs">
                                 <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
-                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Lista de Endereços</li>
+                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Lista de Empresas</li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                 <div class="container">
 
                     <div class="panel-main">
-                        <h1>Lista de Endereços</h1>
+                        <h1>Lista de Empresas</h1>
 
                         <div class="row">
                             <div class="col-12">
@@ -83,9 +83,9 @@
                                             <td><%= result.get(i).getNomeFantasia()%></td>
                                             <td><%= result.get(i).getEmail()%></td>
                                             <td class="actions">
-                                                <a href="<%= Configs.getUrlAddressListOne(result.get(i).getId())%>" class="btn -primary"><i class="fa fa-eye"></i></a>
-                                                <a href="<%= Configs.getUrlAddressEdit(result.get(i).getId())%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="<%= Configs.getUrlAddressDelete(result.get(i).getId())%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyListOne(result.get(i).getId())%>" class="btn -primary"><i class="fa fa-eye"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyEdit(result.get(i).getId())%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="<%= Configs.getUrlCompanyDelete(result.get(i).getId())%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
                                             </td>
                                         </tr>
                                         <%

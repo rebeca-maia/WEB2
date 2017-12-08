@@ -1,7 +1,8 @@
+<%@page import="java.util.List"%>
 <%@page import="general.Configs"%>
 <%@page import="general.App"%>
-<%@page import="model.Address"%>
-<%@page import="dao.AddressDAO"%>
+<%@page import="model.Company"%>
+<%@page import="dao.CompanyDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,7 +10,7 @@
         <meta charset="UTF-8">
         <base href="<%= Configs.getMainUrl()%>"/>
 
-        <title>Endereço | MAGNA</title>
+        <title>Empresa | MAGNA</title>
 
         <!-- Magna Imports Header -->
         <%@ include file="../inc/header-imports.jsp" %>
@@ -37,8 +38,8 @@
                         <div class="col-12">
                             <ul class="breadcrumbs">
                                 <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
-                                <li class="item"><a href="<%= Configs.getUrlAddressListAll()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Lista de Endereços</a></li>
-                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Endereço</li>
+                                <li class="item"><a href="<%= Configs.getUrlCompanyListAll()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Lista de Empresas</a></li>
+                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Empresa</li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
 
                     <div class="panel-main">
 
-                        <h3>Endereço</h3>
+                        <h3>Empresa</h3>
 
                         <div class="row">
                             <div class="col-6">
@@ -57,22 +58,31 @@
                                     // Id do registro atual
                                     int id = (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) ? Integer.parseInt(request.getParameter("id")) : 0;
 
-                                    AddressDAO dao = new AddressDAO();
-                                    Address result = dao.selectOne(id);
+                                    CompanyDAO dao = new CompanyDAO();
+                                    Company result = dao.selectOne(id);
 
                                     if (result != null) {
                                 %>
-                                <p><strong>ID:</strong> <%= result.getIdEndereco()%></p>
-                                <p><strong>Rua:</strong> <%= result.getRua()%></p>
-                                <p><strong>Número:</strong> <%= result.getNumero()%></p>
-                                <p><strong>Bairro:</strong> <%= result.getBairro()%></p>
-                                <p><strong>Complemento:</strong> <%= result.getComplemento()%></p>
-                                <p><strong>CEP:</strong> <%= result.getCep()%></p>
-                                <p><strong>Cidade:</strong> <%= result.getCidade()%></p>
-                                <p><strong>Estado:</strong> <%= result.getEstado()%></p>
-                                <p><strong>País:</strong> <%= result.getPais()%></p>
+                                <p><strong>ID:</strong> <%= result.getId()%></p>
+                                <p><strong>Tipo:</strong> <%= result.getTipo()%></p>
+                                <p><strong>CNPJ:</strong> <%= result.getCnpj()%></p>
+                                <p><strong>Razão Social:</strong> <%= result.getRazaoSocial()%></p>
+                                <p><strong>Nome Fantasia:</strong> <%= result.getNomeFantasia()%></p>
+                                <p><strong>Email:</strong> <%= result.getEmail()%></p>
 
-                                <a href="<%= Configs.getUrlAddressEdit(result.getIdEndereco())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
+                                <br>
+                                <h5>Endereço</h5>
+                                <p><strong>ID:</strong> <%= result.getEndereco().getIdEndereco()%></p>
+                                <p><strong>Rua:</strong> <%= result.getEndereco().getRua()%></p>
+                                <p><strong>Número:</strong> <%= result.getEndereco().getRua()%></p>
+                                <p><strong>Bairro:</strong> <%= result.getEndereco().getBairro()%></p>
+                                <p><strong>Complemento:</strong> <%= result.getEndereco().getComplemento()%></p>
+                                <p><strong>CEP:</strong> <%= result.getEndereco().getCep()%></p>
+                                <p><strong>Cidade:</strong> <%= result.getEndereco().getCidade()%></p>
+                                <p><strong>Estado:</strong> <%= result.getEndereco().getEstado()%></p>
+                                <p><strong>País:</strong> <%= result.getEndereco().getPais()%></p>
+
+                                <a href="<%= Configs.getUrlCompanyEdit(result.getId())%>" class="btn -success"><i class="fa fa-pencil-square"></i> Editar</a>
 
                                 <%
                                 } else {
