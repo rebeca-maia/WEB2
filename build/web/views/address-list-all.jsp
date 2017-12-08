@@ -1,4 +1,8 @@
+<%@page import="java.util.List"%>
 <%@page import="general.Configs"%>
+<%@page import="general.App"%>
+<%@page import="model.Address"%>
+<%@page import="dao.AddressDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -65,23 +69,33 @@
 
                                     <tbody>
 
+                                        <%
+                                            AddressDAO dao = new AddressDAO();
+                                            List<Address> result = dao.selectAll();
+
+                                            for (int i = 0; i < result.size(); i++) {
+                                        %>
+
                                         <tr>
-                                            <td>1</td>
-                                            <td>R. Felipe Santiago</td>
-                                            <td>257</td>
-                                            <td>62900-000</td>
-                                            <td>Russas</td>
-                                            <td>CE</td>
-                                            <td>Brasil</td>
+                                            <td><%= result.get(i).getIdEndereco()%></td>
+                                            <td><%= result.get(i).getRua()%></td>
+                                            <td><%= result.get(i).getNumero()%></td>
+                                            <td><%= result.get(i).getCep()%></td>
+                                            <td><%= result.get(i).getCidade()%></td>
+                                            <td><%= result.get(i).getEstado()%></td>
+                                            <td><%= result.get(i).getPais()%></td>
                                             <td class="actions">
                                                 <a href="<%= Configs.getUrlAddressListOne("1")%>" class="btn -primary"><i class="fa fa-eye"></i></a>
                                                 <a href="<%= Configs.getUrlAddressEdit("1")%>" class="btn -success"><i class="fa fa-pencil-square"></i></a>
                                                 <a href="<%= Configs.getUrlAddressDelete("1")%>" class="btn -danger btn-delete"><i class="fa fa-minus-circle"></i></a>
                                             </td>
                                         </tr>
+                                        <%
+                                            }
+                                        %>
 
                                         <tr>
-                                            <td colspan="8"><b>1 registro(s) encontrado(s).</b></td>
+                                            <td colspan="8"><b><%= result.size()%> registro(s) encontrado(s).</b></td>
                                         </tr>
 
                                     </tbody>

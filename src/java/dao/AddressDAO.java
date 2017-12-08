@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.Address;
 
 public class AddressDAO {
@@ -13,7 +15,7 @@ public class AddressDAO {
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "SELECT * FROM endereco as b WHERE idEndereco = ? LIMIT 1";
+        String sql = "SELECT * FROM endereco WHERE idEndereco = ? LIMIT 1";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -41,6 +43,50 @@ public class AddressDAO {
             }
 
             return address;
+
+        } catch (SQLException ex) {
+            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+
+        } finally {
+            ConnectionBD.closeConn(con, stmt, rs);
+        }
+
+    }
+
+    public List<Address> selectAll() throws Exception {
+
+        ConnectionBD.startConn();
+        Connection con = ConnectionBD.getConn();
+
+        String sql = "SELECT * FROM endereco";
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Address> result = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(sql);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Address address = new Address();
+
+                address.setIdEndereco(rs.getInt("IdEndereco"));
+                address.setRua(rs.getString("rua"));
+                address.setNumero(rs.getString("numero"));
+                address.setBairro(rs.getString("bairro"));
+                address.setComplemento(rs.getString("complemento"));
+                address.setCep(rs.getString("cep"));
+                address.setCidade(rs.getString("cidade"));
+                address.setEstado(rs.getString("estado"));
+                address.setPais(rs.getString("pais"));
+
+                result.add(address);
+            }
+
+            return result;
 
         } catch (SQLException ex) {
             throw new Exception("Erro! A comunicação com o banco de dados falhou.");
