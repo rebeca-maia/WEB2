@@ -1,7 +1,7 @@
-<%@page import="model.Address"%>
-<%@page import="general.App"%>
-<%@page import="dao.AddressDAO"%>
 <%@page import="general.Configs"%>
+<%@page import="general.App"%>
+<%@page import="model.Address"%>
+<%@page import="dao.AddressDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     App magnaApp = new App();
