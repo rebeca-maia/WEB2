@@ -46,7 +46,7 @@ public class AddressDAO {
             return address;
 
         } catch (SQLException ex) {
-            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt, rs);
@@ -90,7 +90,7 @@ public class AddressDAO {
             return result;
 
         } catch (SQLException ex) {
-            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt, rs);
@@ -123,7 +123,7 @@ public class AddressDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt);
@@ -157,7 +157,7 @@ public class AddressDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt);
@@ -180,7 +180,7 @@ public class AddressDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            throw new Exception("Erro! A comunicação com o banco de dados falhou.");
+            throw new Exception("Erro! A operação com o banco de dados falhou.");
 
         } finally {
             ConnectionBD.closeConn(con, stmt);

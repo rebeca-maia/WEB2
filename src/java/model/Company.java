@@ -98,4 +98,16 @@ public class Company {
             this.senha = senha;
         }
     }
+
+    public void setSenha(String senha1, String senha2) throws Exception {
+        if (senha1 == null || senha1.isEmpty()) {
+            throw new Exception("O campo Senha é obrigatório.");
+
+        } else if (!senha1.equals(senha2)) {
+            throw new Exception("Confirmação de senha inválida.");
+
+        } else {
+            this.senha = senha1;
+        }
+    }
 }
