@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Address;
+import model.Company;
 
-public class AddressDAO {
+public class CompanyDAO {
 
     public Address selectOne(int id) throws Exception {
 
@@ -54,16 +55,16 @@ public class AddressDAO {
 
     }
 
-    public List<Address> selectAll() throws Exception {
+    public List<Company> selectAll() throws Exception {
 
         ConnectionBD.startConn();
         Connection con = ConnectionBD.getConn();
 
-        String sql = "SELECT * FROM endereco";
+        String sql = "SELECT * FROM empresa";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Address> result = new ArrayList<>();
+        List<Company> result = new ArrayList<>();
 
         try {
             stmt = con.prepareStatement(sql);
@@ -72,19 +73,16 @@ public class AddressDAO {
 
             while (rs.next()) {
 
-                Address address = new Address();
+                Company company = new Company();
 
-                address.setIdEndereco(rs.getInt("IdEndereco"));
-                address.setRua(rs.getString("rua"));
-                address.setNumero(rs.getString("numero"));
-                address.setBairro(rs.getString("bairro"));
-                address.setComplemento(rs.getString("complemento"));
-                address.setCep(rs.getString("cep"));
-                address.setCidade(rs.getString("cidade"));
-                address.setEstado(rs.getString("estado"));
-                address.setPais(rs.getString("pais"));
+                company.setId(rs.getInt("IdEmpresa"));
+                company.setTipo(rs.getString("tipo"));
+                company.setCnpj(rs.getString("cnpj"));
+                company.setRazaoSocial(rs.getString("razao_social"));
+                company.setNomeFantasia(rs.getString("nome_fantasia"));
+                company.setEmail(rs.getString("email"));
 
-                result.add(address);
+                result.add(company);
             }
 
             return result;
@@ -95,7 +93,6 @@ public class AddressDAO {
         } finally {
             ConnectionBD.closeConn(con, stmt, rs);
         }
-
     }
 
     public void insert(Address address) throws Exception {

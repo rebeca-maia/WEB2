@@ -1,4 +1,5 @@
 <%@page import="general.Configs"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -32,7 +33,7 @@
                     <div class="row">
                         <div class="col-12">
                             <ul class="breadcrumbs">
-                                <li class="item"><a href=""><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
+                                <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
                                 <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Erro 404</li>
                             </ul>
                         </div>
@@ -46,7 +47,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <h4><i class="fa fa-warning"></i> Oops! Página não encontrada.</h4>
-                                <p>Não conseguimos encontrar a página que estava procurando. Retorne ao <a href="<%= Configs.getMainUrlHome()%>">página inicial.</a></p>
+                                <p>NÃ£o conseguimos encontrar a página que estava procurando. Retorne ao <a href="<%= Configs.getMainUrlHome()%>">página inicial.</a></p>
                             </div>
                         </div>
                     </div>

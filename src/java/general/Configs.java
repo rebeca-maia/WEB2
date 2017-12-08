@@ -11,6 +11,12 @@ public class Configs {
     private static final String PATH_VIEWS;
 
     // URLs
+    private static final String URL_COMPANY_LIST_ALL;
+    private static final String URL_COMPANY_LIST_ONE;
+    private static final String URL_COMPANY_REGISTER;
+    private static final String URL_COMPANY_EDIT;
+    private static final String URL_COMPANY_DELETE;
+
     private static final String URL_ADDRESS_LIST_ALL;
     private static final String URL_ADDRESS_LIST_ONE;
     private static final String URL_ADDRESS_REGISTER;
@@ -33,6 +39,13 @@ public class Configs {
 
         ABSPATH_VIEWS = "C:\\Users\\wolf\\Documents\\NetBeansProjects\\magna\\web\\views\\";
         PATH_VIEWS = "views/";
+
+        // URLSs
+        URL_COMPANY_LIST_ALL = MAINURL + "index.jsp?view=" + "company-list-all";
+        URL_COMPANY_LIST_ONE = MAINURL + "index.jsp?view=" + "company-list-one";
+        URL_COMPANY_REGISTER = MAINURL + "index.jsp?view=" + "company-register";
+        URL_COMPANY_EDIT = MAINURL + "index.jsp?view=" + "company-edit";
+        URL_COMPANY_DELETE = MAINURL + "index.jsp?view=" + "company-delete";
 
         URL_ADDRESS_LIST_ALL = MAINURL + "index.jsp?view=" + "address-list-all";
         URL_ADDRESS_LIST_ONE = MAINURL + "index.jsp?view=" + "address-list-one";
@@ -64,6 +77,26 @@ public class Configs {
 
     public static String getPathViews() {
         return PATH_VIEWS;
+    }
+
+    public static String getUrlCompanyListAll() {
+        return URL_COMPANY_LIST_ALL;
+    }
+
+    public static String getUrlCompanyListOne(int param) {
+        return URL_COMPANY_LIST_ONE + "&id=" + param;
+    }
+
+    public static String getUrlCompanyRegister() {
+        return URL_COMPANY_REGISTER;
+    }
+
+    public static String getUrlCompanyEdit(int param) {
+        return URL_COMPANY_EDIT + "&id=" + param;
+    }
+
+    public static String getUrlCompanyDelete(int param) {
+        return URL_COMPANY_DELETE + "&id=" + param;
     }
 
     public static String getUrlAddressListAll() {
