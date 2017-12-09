@@ -4,7 +4,7 @@
 
     <ul class="list-items">
 
-        <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+        <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-home" aria-hidden="true"></i>Início</a></li>
 
         <li class="item">
             <a class="btn-drop" href="#"><i class="fa fa-user" aria-hidden="true"></i>Empresa <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -21,6 +21,8 @@
                 <li class="item"><a href="<%= Configs.getUrlAddressRegister()%>"><i class="fa fa-sign-in" aria-hidden="true"></i>Cadastrar</a></li>
             </ul>
         </li>
+
+        <li class="item"><a href="<%= Configs.getUrlNavigationMap()%>"><i class="fa fa-map" aria-hidden="true"></i>Mapa de Navegação</a></li>
 
         <!--        <li class="item">
                     <a class="btn-drop" href="#"><i class="fa fa-diamond" aria-hidden="true"></i>Ofertas<i class="fa fa-caret-down" aria-hidden="true"></i></a>

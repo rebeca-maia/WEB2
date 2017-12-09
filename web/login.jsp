@@ -71,7 +71,7 @@
                             <form class="form-data -block" action="" method="post">
 
                                 <div class="group">
-                                    <label class="label" for="idEmail">Email<span class="required">*</span></label>
+                                    <label class="label" for="idEmail">E-mail<span class="required">*</span></label>
                                     <input class="field" id="idEmail" type="email" name="email" value="${param.email}" placeholder="Insira o seu email aqui ...">
                                 </div>
 
@@ -83,6 +83,9 @@
                                 <div class="group">
                                     <button class="btn -success" type="submit" name="btnLogin">Entrar</button>
                                 </div>
+
+                                <!--<p>E-mail: fran@gmail.com</p>
+                                <p>Senha: 12345678</p>-->
 
                                 <!--<a href="cadastrar.html">Cadastra-se!</a>-->
 

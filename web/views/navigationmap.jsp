@@ -1,3 +1,4 @@
+<%@page import="jdk.nashorn.internal.runtime.regexp.joni.Config"%>
 <%@page import="general.Configs"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,7 +34,8 @@
                     <div class="row">
                         <div class="col-12">
                             <ul class="breadcrumbs">
-                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Início</li>
+                                <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
+                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Mapa de Navegação</li>
                             </ul>
                         </div>
                     </div>
@@ -42,12 +44,12 @@
                 <div class="container">
                     <div class="panel-main">
 
-                        <h1>Home</h1>
+                        <h1>Mapa de Navegação</h1>
 
                         <div class="row">
                             <div class="col-12">
 
-                                <p>Seja bem vindo a página Inicial.</p>
+                                <img src="<%= Configs.getMainUrl()%>assets/imgs/mapa.png">
 
                             </div>
                         </div>

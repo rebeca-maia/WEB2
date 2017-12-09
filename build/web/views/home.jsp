@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-12">
                             <ul class="breadcrumbs">
-                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</li>
+                                <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Início</li>
                             </ul>
                         </div>
                     </div>

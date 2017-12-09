@@ -23,6 +23,8 @@ public class Configs {
     private static final String URL_ADDRESS_EDIT;
     private static final String URL_ADDRESS_DELETE;
 
+    private static final String URL_NAVIGATION_MAP;
+
     // URLs
     private static final String DB_DRIVER;
     private static final String DB_URL;
@@ -52,6 +54,8 @@ public class Configs {
         URL_ADDRESS_REGISTER = MAINURL + "index.jsp?view=" + "address-register";
         URL_ADDRESS_EDIT = MAINURL + "index.jsp?view=" + "address-edit";
         URL_ADDRESS_DELETE = MAINURL + "index.jsp?view=" + "address-delete";
+
+        URL_NAVIGATION_MAP = MAINURL + "index.jsp?view=" + "navigationmap";
 
         DB_DRIVER = "com.mysql.jdbc.Driver";
         DB_URL = "jdbc:mysql://localhost:3306/magna?useUnicode=yes&characterEncoding=UTF-8";
@@ -117,6 +121,10 @@ public class Configs {
 
     public static String getUrlAddressDelete(int param) {
         return URL_ADDRESS_DELETE + "&id=" + param;
+    }
+
+    public static String getUrlNavigationMap() {
+        return URL_NAVIGATION_MAP;
     }
 
     public static String getDbDriver() {

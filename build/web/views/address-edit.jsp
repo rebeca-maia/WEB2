@@ -73,6 +73,7 @@
                         <div class="col-12">
                             <ul class="breadcrumbs">
                                 <li class="item"><a href="<%= Configs.getMainUrlHome()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
+                                <li class="item"><a href="<%= Configs.getUrlAddressListAll()%>"><i class="fa fa-caret-right" aria-hidden="true"></i>Lista de Endereços</a></li>
                                 <li class="item"><i class="fa fa-caret-right" aria-hidden="true"></i> Editar Endereço</li>
                             </ul>
                         </div>

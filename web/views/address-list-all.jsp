@@ -52,6 +52,8 @@
                         <div class="row">
                             <div class="col-12">
 
+                                <a href="<%= Configs.getUrlAddressRegister()%>" class="btn -success"><i class="fa fa-pencil-square"></i> Cadastrar Novo</a><br><br>
+
                                 <table class="table">
 
                                     <thead>
