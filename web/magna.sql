@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Dez-2017 às 18:33
+-- Generation Time: 09-Dez-2017 às 03:25
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -31,8 +31,8 @@ USE `magna`;
 --
 
 CREATE TABLE `empresa` (
-  `idEmpresa` int(11) NOT NULL,
-  `idEndereco` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
   `tipo` enum('CLIENTE','FORNECEDOR','','') COLLATE utf8_bin NOT NULL,
   `cnpj` varchar(14) COLLATE utf8_bin NOT NULL,
   `razao_social` varchar(45) COLLATE utf8_bin NOT NULL,
@@ -45,10 +45,9 @@ CREATE TABLE `empresa` (
 -- Extraindo dados da tabela `empresa`
 --
 
-INSERT INTO `empresa` (`idEmpresa`, `idEndereco`, `tipo`, `cnpj`, `razao_social`, `nome_fantasia`, `email`, `senha`) VALUES
-(1, 33, 'CLIENTE', '123', 'Magna LTDA', 'Magna', 'contato@magna.com.br', '123'),
-(2, 33, 'FORNECEDOR', '1', '2', '3', 'fran@gmail.com', '4'),
-(3, 33, 'FORNECEDOR', '1', '2', '3', 'fran@gmail.com', '202cb962ac59075b964b07152d234b70');
+INSERT INTO `empresa` (`id_empresa`, `id_endereco`, `tipo`, `cnpj`, `razao_social`, `nome_fantasia`, `email`, `senha`) VALUES
+(1, 33, 'CLIENTE', '00.000/0000-00', 'Magna LTDA', 'Magna', 'fran@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
+(4, 34, 'FORNECEDOR', '00.000/0000-00', '2', '3', 'teste@gmail.com', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -57,7 +56,7 @@ INSERT INTO `empresa` (`idEmpresa`, `idEndereco`, `tipo`, `cnpj`, `razao_social`
 --
 
 CREATE TABLE `endereco` (
-  `idEndereco` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
   `rua` varchar(45) COLLATE utf8_bin NOT NULL,
   `numero` varchar(11) COLLATE utf8_bin NOT NULL,
   `bairro` varchar(45) COLLATE utf8_bin NOT NULL,
@@ -72,10 +71,9 @@ CREATE TABLE `endereco` (
 -- Extraindo dados da tabela `endereco`
 --
 
-INSERT INTO `endereco` (`idEndereco`, `rua`, `numero`, `bairro`, `complemento`, `cep`, `cidade`, `estado`, `pais`) VALUES
+INSERT INTO `endereco` (`id_endereco`, `rua`, `numero`, `bairro`, `complemento`, `cep`, `cidade`, `estado`, `pais`) VALUES
 (33, 'R. Felipe Santiago', '640', 'Vila Matoso', 'Próximo a Policlínica', '62900-000', 'Russas', 'Ceará', 'Brasil'),
-(34, '1', '2', '3', '4', '5', '6', '7', '8'),
-(35, '1', '2', '3', 'Próximo a Policlínica', '5', 'Russas', '8', '9');
+(34, '9', '8', '7', '6', '5', '4', '3', '2');
 
 -- --------------------------------------------------------
 
@@ -97,7 +95,7 @@ CREATE TABLE `itenspedido` (
 --
 
 CREATE TABLE `oferta` (
-  `idoferta` int(11) NOT NULL,
+  `id_oferta` int(11) NOT NULL,
   `fk_pedido` int(11) NOT NULL,
   `categoria` varchar(45) COLLATE utf8_bin NOT NULL,
   `qtd` int(11) NOT NULL,
@@ -111,7 +109,7 @@ CREATE TABLE `oferta` (
 --
 
 CREATE TABLE `pedido` (
-  `idpedido` int(11) NOT NULL,
+  `id_pedido` int(11) NOT NULL,
   `precoTotal` float NOT NULL,
   `data` datetime NOT NULL,
   `qtdTotal` int(11) NOT NULL
@@ -124,7 +122,7 @@ CREATE TABLE `pedido` (
 --
 
 CREATE TABLE `produto` (
-  `idproduto` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
   `titulo` varchar(45) CHARACTER SET utf8 NOT NULL,
   `descricao` varchar(45) CHARACTER SET utf8 NOT NULL,
   `preco` varchar(45) CHARACTER SET utf8 NOT NULL
@@ -138,14 +136,14 @@ CREATE TABLE `produto` (
 -- Indexes for table `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`idEmpresa`),
-  ADD KEY `idEndereco` (`idEndereco`);
+  ADD PRIMARY KEY (`id_empresa`),
+  ADD KEY `idEndereco` (`id_endereco`);
 
 --
 -- Indexes for table `endereco`
 --
 ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`idEndereco`);
+  ADD PRIMARY KEY (`id_endereco`);
 
 --
 -- Indexes for table `itenspedido`
@@ -158,20 +156,20 @@ ALTER TABLE `itenspedido`
 -- Indexes for table `oferta`
 --
 ALTER TABLE `oferta`
-  ADD PRIMARY KEY (`idoferta`),
+  ADD PRIMARY KEY (`id_oferta`),
   ADD KEY `fk_pedido_idx` (`fk_pedido`);
 
 --
 -- Indexes for table `pedido`
 --
 ALTER TABLE `pedido`
-  ADD PRIMARY KEY (`idpedido`);
+  ADD PRIMARY KEY (`id_pedido`);
 
 --
 -- Indexes for table `produto`
 --
 ALTER TABLE `produto`
-  ADD PRIMARY KEY (`idproduto`);
+  ADD PRIMARY KEY (`id_produto`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -181,31 +179,31 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `oferta`
 --
 ALTER TABLE `oferta`
-  MODIFY `idoferta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_oferta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idproduto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -215,20 +213,20 @@ ALTER TABLE `produto`
 -- Limitadores para a tabela `empresa`
 --
 ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idEndereco`) REFERENCES `endereco` (`idEndereco`);
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`);
 
 --
 -- Limitadores para a tabela `itenspedido`
 --
 ALTER TABLE `itenspedido`
-  ADD CONSTRAINT `fk_pedido` FOREIGN KEY (`fk_pedido`) REFERENCES `pedido` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_produto` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`idproduto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_pedido` FOREIGN KEY (`fk_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_produto` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`id_produto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `oferta`
 --
 ALTER TABLE `oferta`
-  ADD CONSTRAINT `fk_pedido_` FOREIGN KEY (`fk_pedido`) REFERENCES `pedido` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_pedido_` FOREIGN KEY (`fk_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
