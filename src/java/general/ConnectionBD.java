@@ -11,18 +11,18 @@ public class ConnectionBD {
 
     private static Connection conn;
 
-    private ConnectionBD() {
+    private ConnectionBD() throws Exception {
         try {
             Class.forName(Configs.getDbDriver());
 
             ConnectionBD.conn = DriverManager.getConnection(Configs.getDbUrl(), Configs.getDbUser(), Configs.getDbPass());
 
         } catch (ClassNotFoundException | SQLException ex) {
-            System.err.println("Close connection error" + ex);
+            throw new Exception("Erro! A conexão com o banco de dados falhou.");
         }
     }
 
-    public static void startConn() {
+    public static void startConn() throws Exception {
         if (ConnectionBD.conn == null) {
             new ConnectionBD();
         }

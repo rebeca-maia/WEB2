@@ -72,20 +72,17 @@
 
                                 <div class="group">
                                     <label class="label" for="idEmail">E-mail<span class="required">*</span></label>
-                                    <input class="field" id="idEmail" type="email" name="email" value="${param.email}" placeholder="Insira o seu email aqui ...">
+                                    <input class="field" id="idEmail" type="email" name="email" value="${param.email}" placeholder="fran@gmail.com">
                                 </div>
 
                                 <div class="group">
                                     <label class="label" for="idPass">Senha<span class="required">*</span></label>
-                                    <input class="field" id="idPass" type="password" name="pass" placeholder="Insira a sua senha aqui ...">
+                                    <input class="field" id="idPass" type="password" name="pass" placeholder="12345678">
                                 </div>
 
                                 <div class="group">
                                     <button class="btn -success" type="submit" name="btnLogin">Entrar</button>
                                 </div>
-
-                                <!--<p>E-mail: fran@gmail.com</p>
-                                <p>Senha: 12345678</p>-->
 
                                 <!--<a href="cadastrar.html">Cadastra-se!</a>-->
 

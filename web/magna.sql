@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Dez-2017 às 03:25
+-- Generation Time: 10-Dez-2017 às 17:39
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -34,7 +34,7 @@ CREATE TABLE `empresa` (
   `id_empresa` int(11) NOT NULL,
   `id_endereco` int(11) NOT NULL,
   `tipo` enum('CLIENTE','FORNECEDOR','','') COLLATE utf8_bin NOT NULL,
-  `cnpj` varchar(14) COLLATE utf8_bin NOT NULL,
+  `cnpj` varchar(20) COLLATE utf8_bin NOT NULL,
   `razao_social` varchar(45) COLLATE utf8_bin NOT NULL,
   `nome_fantasia` varchar(45) COLLATE utf8_bin NOT NULL,
   `email` varchar(45) COLLATE utf8_bin NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `empresa` (
 
 INSERT INTO `empresa` (`id_empresa`, `id_endereco`, `tipo`, `cnpj`, `razao_social`, `nome_fantasia`, `email`, `senha`) VALUES
 (1, 33, 'CLIENTE', '00.000/0000-00', 'Magna LTDA', 'Magna', 'fran@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
-(4, 34, 'FORNECEDOR', '00.000/0000-00', '2', '3', 'teste@gmail.com', '25d55ad283aa400af464c76d713c07ad');
+(2, 34, 'FORNECEDOR', '00.000/0000-00', '2', '3', 'teste@gmail.com', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -179,13 +179,13 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `oferta`

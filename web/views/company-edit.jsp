@@ -112,7 +112,7 @@
                                     </div>
 
                                     <div class="group">
-                                        <label class="label" for="tipo">CNPJ<span class="required">*</span></label>
+                                        <label class="label" for="tipo">Tipo<span class="required">*</span></label>
                                         <select class="field" id="tipo" name="tipo">
                                             <option value="FORNECEDOR" <%= (result.getTipo().equals("FORNECEDOR")) ? "selected" : ""%>>FORNECEDOR</option>
                                             <option value="CLIENTE" <%= (result.getTipo().equals("CLIENTE")) ? "selected" : ""%>>CLIENTE</option>
