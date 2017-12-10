@@ -16,7 +16,20 @@ public class Empresa {
     private String email;
     private String senha;
 
-    public String getLogin() {
+     public void adicionarEndereco(Endereco e){
+         e.adicionarEndereco(e);
+    }
+     
+      public void atualizarEndereco(Endereco e){
+         e.atualizarEndereco(e);
+    }
+      
+    public void deletarEndereco(Endereco e){
+         e.atualizarEndereco(e);
+    }
+    
+    
+     public String getLogin() {
         return login;
     }
 

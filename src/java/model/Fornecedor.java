@@ -12,7 +12,7 @@ public class Fornecedor extends Empresa{
     
     private FornecedorDAO d = FornecedorDAO.getInstance();
     
-    public void realizarCadastro(Fornecedor c){
+    public void cadastrarFornecedor(Fornecedor c){
         Fornecedor novoc=new Fornecedor();
         System.out.println("entrou em cadastrar fornecedor");
         
@@ -107,6 +107,18 @@ public class Fornecedor extends Empresa{
             System.out.println(e.getMessage()+"Erro ao atualizar fornecedor");
         
         }
+    }
+    
+    public void cadastrarOferta(Oferta o){
+        o.cadastrarOferta(o);
+    }
+    
+    public void deletarOferta(Oferta o){
+        o.deletarOferta(o);
+    }
+    
+    public void atualizarOferta(Oferta o){
+        o.atualizarOferta(o);
     }
     
     public int getId() {

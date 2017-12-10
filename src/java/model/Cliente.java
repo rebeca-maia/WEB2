@@ -12,7 +12,7 @@ public class Cliente extends Empresa{
     private int id;
     private ClienteDAO d = ClienteDAO.getInstance();
 
-    private void cadastrarse(Cliente c){
+    private void cadastrarCliente(Cliente c){
         Cliente novoc=new Cliente();
         System.out.println("entrou em cadastrar cliente");
         
@@ -82,15 +82,7 @@ public class Cliente extends Empresa{
     public void setId(int id) {
         this.id = id;
     }
-    
-    
-    private void lancarPedido(){}
-    private void analisarOfertas(){}
-    private void escolherOferta(){}
-    private void adicBlacklist(Fornecedor e){}
-    private void deletarBlacklist(Fornecedor e){}
-    private void lerBlacklist(Fornecedor e){}
-    
+     
    
     
 }

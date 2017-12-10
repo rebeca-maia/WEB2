@@ -16,7 +16,7 @@ public class Oferta {
 
     private OfertaDAO d = OfertaDAO.getInstance();
     
-    public void cadastrar(Oferta o){
+    public void cadastrarOferta(Oferta o){
         Oferta novao = new Oferta();
         System.out.println("entrou em cadastrar oferta");
         
