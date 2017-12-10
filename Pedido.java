@@ -14,7 +14,7 @@ public class Pedido {
     private ArrayList<Oferta> of = new ArrayList<>();
     private int id;
     private Date d;
-
+    
     public int getId() {
         return id;
     }

@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Endereco;
 import model.Fornecedor;
 
 /**
@@ -14,6 +13,11 @@ import model.Fornecedor;
  */
 public class FornecedorDAO {
     private Statement comando;
+    private static FornecedorDAO instance;
+    
+    public static FornecedorDAO getInstance() {
+        return instance == null ? instance = new FornecedorDAO() : instance;
+    }
     
     public void adicionarFornecedor(Fornecedor entity) throws SQLException{
      Connection con = null;

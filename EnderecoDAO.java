@@ -13,6 +13,12 @@ import model.Endereco;
 public class EnderecoDAO {
 
     private Statement comando;
+    
+    private static EnderecoDAO instance;
+    
+    public static EnderecoDAO getInstance() {
+        return instance == null ? instance = new EnderecoDAO() : instance;
+    }
 
     public void adicionarEndereco(Endereco entity) throws SQLException {
         //rua,numero,bairro,complemento,cep,cidade,estado,pais

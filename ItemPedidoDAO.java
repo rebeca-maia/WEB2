@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import model.ItemPedido;
 
 /**
@@ -16,6 +15,12 @@ public class ItemPedidoDAO {
     //BD= qtdProduto,precoTotalProd,fk_produto,fk_pedido
     
     private Statement comando;
+    
+    private static ItemPedidoDAO instance;
+    
+    public static ItemPedidoDAO getInstance() {
+        return instance == null ? instance = new ItemPedidoDAO() : instance;
+    }
 
     public void adicionarItemPedido(ItemPedido entity) throws SQLException {
         Connection con = null;

@@ -15,8 +15,15 @@ public class ProdutoDAO {
     //BD=idproduto,titulo,descricao,preco
     //Java=titulo,descricao,preco
     
-        private Statement comando;
-
+    private Statement comando;
+    
+    private static ProdutoDAO instancia;
+   
+    
+    public static ProdutoDAO getInstance() {
+        return instancia == null ? instancia = new ProdutoDAO() : instancia;
+    }
+    
     public void adicionarProduto(Produto entity) throws SQLException {
         Connection con = null;
         try {

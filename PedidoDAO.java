@@ -12,6 +12,11 @@ import model.Pedido;
  */
 public class PedidoDAO {
      private Statement comando;
+     private static PedidoDAO instance;
+    
+    public static PedidoDAO getInstance() {
+        return instance == null ? instance = new PedidoDAO() : instance;
+    }
 
     public void adicionarPedido(Pedido entity) throws SQLException {
         //idpedido, precoTotal, data, qtdTotal

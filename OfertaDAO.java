@@ -15,7 +15,11 @@ public class OfertaDAO {
     //Java = categoria, p,precoTotal,qtd,id,or
     
      private Statement comando;
-
+     private static OfertaDAO instance;
+    
+    public static OfertaDAO getInstance() {
+        return instance == null ? instance = new OfertaDAO() : instance;
+    }
     public void cadastrar(Oferta entity) throws SQLException {
         //idoferta,fk_pedido,categoria,qtd,precoTotal
         Connection con = null;

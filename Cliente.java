@@ -1,4 +1,7 @@
 package model;
+
+import dao.ClienteDAO;
+
 /**
  *
  * @author Rebeca
@@ -7,6 +10,7 @@ package model;
 public class Cliente extends Empresa{
     
     private int id;
+    private ClienteDAO d = ClienteDAO.getInstance();
 
     public int getId() {
         return id;
@@ -20,9 +24,9 @@ public class Cliente extends Empresa{
     private void lancarPedido(){}
     private void analisarOfertas(){}
     private void escolherOferta(){}
-    private void adicBlacklist(Empresa e){}
-    private void removerDaBlacklist(Empresa e){}
-    private void lerBlacklist(Empresa e){}
+    private void adicBlacklist(Fornecedor e){}
+    private void deletarBlacklist(Fornecedor e){}
+    private void lerBlacklist(Fornecedor e){}
     private void cadastrarse(Cliente c){}
    
     

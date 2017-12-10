@@ -1,5 +1,8 @@
 package model;
 
+import dao.ProdutoDAO;
+import java.util.ArrayList;
+
 /**
  *
  * @author Rebeca
@@ -9,6 +12,64 @@ public class Produto {
     private String titulo;
     private String descricao;
     private float preco;
+    
+    
+    private ProdutoDAO prodDAO = ProdutoDAO.getInstance();
+    
+    public void cadastrarProduto(Produto p){
+        Produto novoProduto = new Produto();
+        
+        System.out.println("Entrou em cadastrar produto");
+        try{
+            novoProduto.setTitulo(p.getTitulo());
+            novoProduto.setPreco(p.getPreco());
+            novoProduto.setDescricao(p.getDescricao());
+            
+            prodDAO.adicionarProduto(novoProduto);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao cadastrar produto");
+        
+        }
+    }
+    
+    public void deletarProduto(Produto p){
+        Produto novoProduto = new Produto();
+        System.out.println("Entrou em deletar produto");
+        try{
+            novoProduto.setTitulo(p.getTitulo());
+            novoProduto.setPreco(p.getPreco());
+            novoProduto.setDescricao(p.getDescricao());
+            
+            prodDAO.deletarProduto(novoProduto);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao deletar produto");
+        }
+    }
+    
+    public void atualizarProduto(Produto p){
+        Produto novoProduto = new Produto();
+        System.out.println("Entrou em deletar produto");
+        try{
+            novoProduto.setTitulo(p.getTitulo());
+            novoProduto.setPreco(p.getPreco());
+            novoProduto.setDescricao(p.getDescricao());
+            
+            prodDAO.atualizarProduto(novoProduto);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao alterar produto");
+        }
+    }
+    
+    public ArrayList buscarProdutoPorTitulo(String titulo){
+        System.out.println("Entrou em deletar produto");
+        try{
+            return prodDAO.buscarProdutoPorTitulo(titulo);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao alterar produto");
+            return null;
+        }
+    }
+    
     
      public int getId() {
         return id;

@@ -1,5 +1,6 @@
 package model;
 
+import dao.ItemPedidoDAO;
 
 /**
  *
@@ -10,15 +11,57 @@ public class ItemPedido {
     private float precoTotal;
     private int quant;
     private Produto prod;
-
-    public int getIdPedido() {
-        return idPedido;
+        
+    ItemPedidoDAO idao = ItemPedidoDAO.getInstance();
+    
+    public void adicionarItemPedido(ItemPedido ip){
+        ItemPedido novoip = new ItemPedido();
+        
+        System.out.println("Entrou em cadastrar itempedido");
+        try{
+            novoip.setPrecoTotal(ip.getPrecoTotal());
+            novoip.setQuant(ip.getQuant());
+            novoip.setProd(ip.getProd());
+            
+            idao.adicionarItemPedido(novoip);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao cadastrar itempedido");
+        
+        }
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void deletarItemPedido(ItemPedido ip){
+        ItemPedido novoip = new ItemPedido();
+        
+        System.out.println("Entrou em deletar itempedido");
+        try{
+            novoip.setPrecoTotal(ip.getPrecoTotal());
+            novoip.setQuant(ip.getQuant());
+            novoip.setProd(ip.getProd());
+            
+            idao.deletarItemPedido(novoip);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao deletar itempedido");
+        
+        }
     }
-
+    
+    public void atualizarItemPedido(ItemPedido ip){
+        ItemPedido novoip = new ItemPedido();
+        
+        System.out.println("Entrou em atualizar itempedido");
+        try{
+            novoip.setPrecoTotal(ip.getPrecoTotal());
+            novoip.setQuant(ip.getQuant());
+            novoip.setProd(ip.getProd());
+            
+            idao.atualizarItemPedido(novoip);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao atualizar itempedido");
+        
+        }
+    }
+    
     public Produto getProd() {
         return prod;
     }
@@ -27,6 +70,14 @@ public class ItemPedido {
         this.prod = prod;
     }
     
+    
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
     
     public float getPrecoTotal() {
         return precoTotal;

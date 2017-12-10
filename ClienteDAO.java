@@ -14,6 +14,12 @@ import java.util.ArrayList;
 public class ClienteDAO {
 
     private Statement comando;
+    
+    private static ClienteDAO instance;
+    
+    public static ClienteDAO getInstance() {
+        return instance == null ? instance = new ClienteDAO() : instance;
+    }
 
     public void adicionarCliente(Cliente entity) throws SQLException {
         Connection con = null;
@@ -53,7 +59,7 @@ public class ClienteDAO {
             }
         }
     }
-
+/*
     public ArrayList buscarClientePorNome(String nome) throws SQLException {
 
         Connection con = null;
@@ -103,7 +109,7 @@ public class ClienteDAO {
             }
         }
         return cl;
-    }
+    }*/
 
     private Cliente map(ResultSet rs) throws SQLException {
         //tipo,cnpj,razao_social,nome_fantasia,login,email,senha

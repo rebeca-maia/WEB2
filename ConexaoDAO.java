@@ -26,7 +26,7 @@ public final class ConexaoDAO {
         Class.forName(driverName);
             String serverName = "localhost:3306/Web";    //caminho do servidor do BD  
             String url = "jdbc:mysql://" + serverName; 
-            String username = "admin";        //nome de um usuário de seu BD 
+            String username = "root";        //nome de um usuário de seu BD 
             String password = "admin";      //sua senha de acesso 
             connection = DriverManager.getConnection(url, username, password);
             
@@ -52,5 +52,9 @@ public final class ConexaoDAO {
            ConexaoDAO.FecharConexao();
            return ConexaoDAO.getConexaoMySQL();
         }
+
+    ConexaoDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
