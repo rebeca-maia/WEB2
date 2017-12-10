@@ -1,4 +1,7 @@
 package model;
+
+import dao.EnderecoDAO;
+
 /**
  *
  * @author Rebeca
@@ -13,9 +16,67 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String pais;
+    private int id;
     
+    private EnderecoDAO edao = EnderecoDAO.getInstance();
     
-
+    public void adicionarEndereco(Endereco e){
+        Endereco novoe = new Endereco();
+        System.out.println("entrou em adicionar endereço");
+        try{
+            novoe.setBairro(e.getBairro());
+            novoe.setCep(e.getCep());
+            novoe.setCidade(e.getCidade());
+            novoe.setComplemento(e.getComplemento());
+            novoe.setEstado(e.getEstado());
+            novoe.setNum(e.getNum());
+            novoe.setPais(e.getPais());
+            novoe.setRua(e.getRua());
+            
+            edao.adicionarEndereco(novoe);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage()+"Erro ao adicionar endereco");
+        }
+    }
+    
+    public void atualizarEndereco(Endereco e){
+        Endereco novoe = new Endereco();
+        System.out.println("entrou em atualizar endereço");
+        try{
+            novoe.setBairro(e.getBairro());
+            novoe.setCep(e.getCep());
+            novoe.setCidade(e.getCidade());
+            novoe.setComplemento(e.getComplemento());
+            novoe.setEstado(e.getEstado());
+            novoe.setNum(e.getNum());
+            novoe.setPais(e.getPais());
+            novoe.setRua(e.getRua());
+            
+            edao.atualizarEndereco(novoe);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage()+"Erro ao atualizar endereco");
+        }
+    }
+    
+    public void deleteEndereco(Endereco e){
+        Endereco novoe = new Endereco();
+        System.out.println("entrou em deletar endereço");
+        try{
+            novoe.setBairro(e.getBairro());
+            novoe.setCep(e.getCep());
+            novoe.setCidade(e.getCidade());
+            novoe.setComplemento(e.getComplemento());
+            novoe.setEstado(e.getEstado());
+            novoe.setNum(e.getNum());
+            novoe.setPais(e.getPais());
+            novoe.setRua(e.getRua());
+            
+            edao.deleteEndereco(novoe);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage()+"Erro ao deletar endereco");
+        }
+    }
+    
     public String getRua() {
         return rua;
     }
@@ -23,7 +84,14 @@ public class Endereco {
     public void setRua(String rua) {
         this.rua = rua;
     }
+    
+    public int getID() {
+        return id;
+    }
 
+    public void setID(int id) {
+        this.id = id;
+    }
     public String getNum() {
         return num;
     }
