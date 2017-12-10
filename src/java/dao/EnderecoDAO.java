@@ -97,11 +97,11 @@ public class EnderecoDAO {
         return cl;
     }
 
-    public void deleteEndereco(int id) throws SQLException {
+    public void deleteEndereco(Endereco en) throws SQLException {
         Connection con = null;
         try {
             con = ConexaoDAO.getConexaoMySQL();
-            String sql = "DELETE * FROM endereco where id = " + id;
+            String sql = "DELETE * FROM endereco where id = " + en.getID();
             comando.executeQuery(sql);
         } catch (SQLException e) {
             throw new SQLException("Operação não realizada com sucesso.", e);
