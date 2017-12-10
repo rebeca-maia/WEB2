@@ -1,5 +1,6 @@
 package model;
 
+import dao.PedidoDAO;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,6 +15,60 @@ public class Pedido {
     private ArrayList<Oferta> of = new ArrayList<>();
     private int id;
     private Date d;
+    
+    
+    PedidoDAO pdao = PedidoDAO.getInstance();
+    
+    public void adicionarPedido(Pedido p){
+        Pedido novopedido = new Pedido();
+        
+        System.out.println("Entrou em cadastrar pedido");
+        try{
+            novopedido.setD(p.getD());
+            novopedido.setItens(p.getItens());
+            novopedido.setPrecoTotal(p.getPrecoTotal());
+            novopedido.setQtdTotal(p.getQtdTotal());
+            
+            pdao.adicionarPedido(novopedido);
+        }catch(Exception e){
+             System.out.println(e.getMessage()+"Erro ao cadastrar pedido");
+    
+        }
+    }
+    
+    public void deletarPedido(Pedido p){
+        Pedido novopedido = new Pedido();
+        
+        System.out.println("Entrou em deletar pedido");
+        try{
+            novopedido.setD(p.getD());
+            novopedido.setItens(p.getItens());
+            novopedido.setPrecoTotal(p.getPrecoTotal());
+            novopedido.setQtdTotal(p.getQtdTotal());
+            
+            pdao.deletarPedido(novopedido);
+        }catch(Exception e){
+             System.out.println(e.getMessage()+"Erro ao deletar pedido");
+    
+        }
+    }
+    
+    public void atualizarPedido(Pedido p){
+        Pedido novopedido = new Pedido();
+        
+        System.out.println("Entrou em atualizar pedido");
+        try{
+            novopedido.setD(p.getD());
+            novopedido.setItens(p.getItens());
+            novopedido.setPrecoTotal(p.getPrecoTotal());
+            novopedido.setQtdTotal(p.getQtdTotal());
+            
+            pdao.deletarPedido(novopedido);
+        }catch(Exception e){
+             System.out.println(e.getMessage()+"Erro ao atualizar pedido");
+    
+        }
+    }
     
     public int getId() {
         return id;

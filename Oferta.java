@@ -1,5 +1,7 @@
 package model;
 
+import dao.OfertaDAO;
+
 /**
  *
  * @author Rebeca
@@ -12,6 +14,62 @@ public class Oferta {
     private int id;
     private Pedido or;
 
+    private OfertaDAO d = OfertaDAO.getInstance();
+    
+    public void cadastrar(Oferta o){
+        Oferta novao = new Oferta();
+        System.out.println("entrou em cadastrar oferta");
+        
+        try{
+            novao.setCategoria(o.getCategoria());
+            novao.setOr(o.getOr());
+            novao.setP(o.getP());
+            novao.setPrecoTotal(o.getPrecoTotal());
+            novao.setQtd(o.getQtd());
+                    
+           d.cadastrar(novao);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao adicionar oferta");
+        
+        }
+    } 
+    
+    public void deletarOferta(Oferta o){
+         Oferta novao = new Oferta();
+        System.out.println("entrou em deletar oferta");
+        
+        try{
+            novao.setCategoria(o.getCategoria());
+            novao.setOr(o.getOr());
+            novao.setP(o.getP());
+            novao.setPrecoTotal(o.getPrecoTotal());
+            novao.setQtd(o.getQtd());
+                    
+           d.deletarOferta(novao);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao deletar oferta");
+        
+        }
+    }
+    
+    public void atualizarOferta(Oferta o){
+        Oferta novao = new Oferta();
+        System.out.println("entrou em atualizar oferta");
+        
+        try{
+            novao.setCategoria(o.getCategoria());
+            novao.setOr(o.getOr());
+            novao.setP(o.getP());
+            novao.setPrecoTotal(o.getPrecoTotal());
+            novao.setQtd(o.getQtd());
+                    
+           d.atualizarOferta(novao);
+        }catch(Exception e){
+            System.out.println(e.getMessage()+"Erro ao atualizar oferta");
+        
+        }
+    }
+    
     public Pedido getOr() {
         return or;
     }
